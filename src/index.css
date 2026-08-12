@@ -1,0 +1,89 @@
+:root {
+  --gold: #dfa121;
+  --gold-light: #f2c464;
+  --navy-deep: #2b386a;
+  --navy-line: #495f8d;
+  --cream: #fee7d1;
+  --slate: #acb1c5;
+  --charcoal: #06212b;
+  --ticket-bg: #ffdeab;
+
+  --bg: var(--navy-deep);
+  --bg-elevated: rgba(255, 255, 255, 0.06);
+  --text: var(--cream);
+  --text-h: #ffffff;
+  --border: rgba(255, 255, 255, 0.18);
+  --shadow:
+    rgba(0, 0, 0, 0.35) 0 10px 25px -5px, rgba(0, 0, 0, 0.2) 0 4px 6px -2px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+  --dokdo: 'East Sea Dokdo', cursive;
+  --sidebar-cloud: #d6dce0;
+
+  font: 24px/300% var(--dokdo);
+  letter-spacing: 0.18px;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+[data-theme='light'] {
+  --bg: var(--slate);
+  --bg-elevated: rgba(43, 56, 106, 0.08);
+  --text: #223055;
+  --text-h: #101a37;
+  --border: rgba(43, 56, 106, 0.22);
+  --shadow:
+    rgba(43, 56, 106, 0.18) 0 10px 25px -5px,
+    rgba(43, 56, 106, 0.12) 0 4px 6px -2px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
+}
+
+h1,
+h2 {
+  font-family: var(--dokdo);
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0;
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1px;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+  }
+}
+h2 {
+  font-size: 40px;
+  letter-spacing: -0.4px;
+  @media (max-width: 1024px) {
+    font-size: 28px;
+  }
+}
+p {
+  margin: 0;
+}
