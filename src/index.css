@@ -16,7 +16,7 @@
   --shadow:
     rgba(0, 0, 0, 0.35) 0 10px 25px -5px, rgba(0, 0, 0, 0.2) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: 'Quicksand', system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
   --dokdo: 'East Sea Dokdo', cursive;
   --cinzel: 'Cinzel', serif;

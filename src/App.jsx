@@ -6,6 +6,7 @@ import ticketBooth from './assets/ticket-booth-trim.png'
 import emblem from './assets/emblem.svg'
 import sponsorsLogos from './assets/sponsors.svg'
 import Schedule from './Schedule.jsx'
+import Tracks from './Tracks.jsx'
 import './App.css'
 
 const APPLY_FORM_URL = 'https://forms.gle/2ZbetvDn44GPYP6GA'
@@ -188,9 +189,12 @@ function App() {
       </section>
 
       <section className="tracks" id="tracks">
-        <h2>Tracks</h2>
-        <p className="section-note">Coming soon.</p>
-        <div className="tracks-empty" />
+        <h2 className="tracks-title">Tracks</h2>
+        <p className="tracks-subtitle">
+          Track themes will be announced during the Opening Ceremony on Friday, September 11.
+          Teams will choose a track when submitting your project on Saturday.
+        </p>
+        <Tracks />
       </section>
 
       <section className="sponsors" id="sponsors">
