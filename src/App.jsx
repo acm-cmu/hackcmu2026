@@ -8,7 +8,7 @@ import sponsorsLogos from './assets/sponsors.svg'
 import Schedule from './Schedule.jsx'
 import './App.css'
 
-const APPLY_FORM_URL = '#apply-placeholder'
+const APPLY_FORM_URL = 'https://forms.gle/2ZbetvDn44GPYP6GA'
 const SECTIONS = ['tickets', 'tracks', 'sponsors']
 
 function ThemeToggle({ theme, onToggle }) {
