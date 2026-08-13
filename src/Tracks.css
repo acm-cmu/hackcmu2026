@@ -35,6 +35,21 @@
   white-space: nowrap;
 }
 
+.track-click-hint {
+  margin-top: -10px;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-style: italic;
+  font-weight: 600;
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.track-icon-btn:hover .track-click-hint {
+  opacity: 0.55;
+}
+
 .track-panel {
   align-self: stretch;
   position: relative;

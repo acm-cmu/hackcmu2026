@@ -119,6 +119,22 @@
   text-align: center;
 }
 
+.sponsor-click-hint {
+  margin-top: -6px;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sponsor-frame:hover .sponsor-click-hint {
+  opacity: 1;
+}
+
 .sponsor-modal-backdrop {
   position: fixed;
   inset: 0;

@@ -250,6 +250,22 @@
   transform: translateY(-2px) scale(1.03);
 }
 
+.apply-btn:hover ~ .apply-btn-hint {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.apply-btn-hint {
+  margin-top: -24px;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 600;
+  color: rgba(6, 33, 43, 0.55);
+}
+
 .tracks {
   background: var(--bg);
   display: flex;

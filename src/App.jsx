@@ -226,6 +226,7 @@ function App() {
           <a className="apply-btn" href={APPLY_FORM_URL} target="_blank" rel="noopener noreferrer">
             Get Ticket
           </a>
+          <span className="apply-btn-hint">click me!</span>
         </div>
       </section>
 

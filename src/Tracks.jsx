@@ -52,6 +52,7 @@ function Tracks() {
             >
               <TrainIcon />
               <span className="track-icon-label">{track.name}</span>
+              <span className="track-click-hint">click me!</span>
             </button>
           )
         })}

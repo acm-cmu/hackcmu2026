@@ -94,6 +94,7 @@ function Sponsors() {
               <img src={sponsor.logo} alt={`${sponsor.name} logo`} />
             </span>
             <span className="sponsor-frame-name">{sponsor.name}</span>
+            <span className="sponsor-click-hint">click me!</span>
           </button>
         ))}
       </div>
