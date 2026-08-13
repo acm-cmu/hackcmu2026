@@ -20,6 +20,8 @@
   --mono: ui-monospace, Consolas, monospace;
   --dokdo: 'East Sea Dokdo', cursive;
   --cinzel: 'Cinzel', serif;
+  --playfair: 'Playfair Display', serif;
+  --newsprint: Georgia, 'Times New Roman', serif;
   --sidebar-cloud: #d6dce0;
 
   font: 24px/300% var(--dokdo);

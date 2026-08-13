@@ -6,6 +6,7 @@ import ticketBooth from './assets/ticket-booth-trim.png'
 import emblem from './assets/emblem.svg'
 import Schedule from './Schedule.jsx'
 import Tracks from './Tracks.jsx'
+import Faq from './Faq.jsx'
 import Sponsors from './Sponsors.jsx'
 import './App.css'
 
@@ -14,6 +15,7 @@ const SECTIONS = [
   { id: 'home', label: 'Station' },
   { id: 'tickets', label: 'Tickets' },
   { id: 'tracks', label: 'Tracks' },
+  { id: 'faq', label: 'FAQ' },
   { id: 'sponsors', label: 'Sponsors' },
 ]
 
@@ -68,6 +70,43 @@ function SidebarClouds({ width, height }) {
         <circle key={i} cx={cut - radius} cy={startY + i * spacing} r={radius} />
       ))}
     </svg>
+  )
+}
+
+const CLOUD_UNIT_WIDTH = 96
+const CLOUD_UNIT_STEP = 42
+
+function CloudTrail({ width }) {
+  const count = Math.ceil(width / CLOUD_UNIT_STEP) + 3
+  const startX = -CLOUD_UNIT_WIDTH
+
+  return (
+    <div className="cloud-trail-wrap">
+      <svg
+        className="cloud-trail"
+        width="100%"
+        height="52"
+        viewBox={`0 0 ${width} 52`}
+        preserveAspectRatio="none"
+        fill="#ffffff"
+        aria-hidden="true"
+      >
+        {Array.from({ length: count }).map((_, i) => {
+          const x = startX + i * CLOUD_UNIT_STEP
+          const scale = i % 3 === 0 ? 1.1 : i % 3 === 1 ? 0.95 : 1.02
+          const y = 2 + (i % 2) * 4
+          return (
+            <g key={i} transform={`translate(${x}, ${y}) scale(${scale})`}>
+              <ellipse cx="42" cy="28" rx="34" ry="10" />
+              <circle cx="14" cy="18" r="12" />
+              <circle cx="34" cy="14" r="16" />
+              <circle cx="54" cy="17" r="13" />
+              <circle cx="70" cy="20" r="10" />
+            </g>
+          )
+        })}
+      </svg>
+    </div>
   )
 }
 
@@ -173,6 +212,8 @@ function App() {
         </div>
       </section>
 
+      <CloudTrail width={viewportWidth} />
+
       <section className="board-tickets" id="tickets">
         <Schedule />
 
@@ -188,6 +229,8 @@ function App() {
         </div>
       </section>
 
+      <CloudTrail width={viewportWidth} />
+
       <section className="tracks" id="tracks">
         <h2 className="tracks-title">Tracks</h2>
         <p className="tracks-subtitle">
@@ -197,9 +240,19 @@ function App() {
         <Tracks />
       </section>
 
+      <CloudTrail width={viewportWidth} />
+
+      <section className="faq" id="faq">
+        <Faq />
+      </section>
+
+      <CloudTrail width={viewportWidth} />
+
       <section className="sponsors" id="sponsors">
         <Sponsors />
       </section>
+
+      <CloudTrail width={viewportWidth} />
 
       <footer className="site-footer">
         <p>HackCMU 2026 · Carnegie Mellon University</p>
