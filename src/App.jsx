@@ -5,6 +5,7 @@ import board from './assets/board-trim.png'
 import ticketBooth from './assets/ticket-booth-trim.png'
 import emblem from './assets/emblem.svg'
 import sponsorsLogos from './assets/sponsors.svg'
+import Schedule from './Schedule.jsx'
 import './App.css'
 
 const APPLY_FORM_URL = '#apply-placeholder'
@@ -163,6 +164,8 @@ function App() {
       </section>
 
       <section className="board-tickets" id="tickets">
+        <Schedule />
+
         <div className="ticket-col">
           <img
             className="ticket-booth-img"

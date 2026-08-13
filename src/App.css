@@ -150,20 +150,23 @@
 
 .board-tickets {
   background: var(--ticket-bg);
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   align-items: center;
-  justify-content: flex-end;
-  padding: 96px 6vw 96px 40px;
+  gap: 32px;
+  padding: 96px clamp(24px, 4vw, 56px) 96px clamp(340px, 26vw, 420px);
 
   @media (max-width: 900px) {
+    grid-template-columns: 1fr;
     padding: 64px 24px;
+    gap: 48px;
   }
 }
 
 .ticket-col {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   gap: 28px;
 }
 
