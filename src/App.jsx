@@ -9,7 +9,12 @@ import Schedule from './Schedule.jsx'
 import './App.css'
 
 const APPLY_FORM_URL = 'https://forms.gle/2ZbetvDn44GPYP6GA'
-const SECTIONS = ['tickets', 'tracks', 'sponsors']
+const SECTIONS = [
+  { id: 'home', label: 'Station' },
+  { id: 'tickets', label: 'Tickets' },
+  { id: 'tracks', label: 'Tracks' },
+  { id: 'sponsors', label: 'Sponsors' },
+]
 
 function ThemeToggle({ theme, onToggle }) {
   return (
@@ -72,9 +77,9 @@ function SideNav({ activeSection, progress }) {
         <div className="side-nav-progress" style={{ height: `${progress}%` }} />
       </div>
       <ul>
-        {SECTIONS.map((id) => (
+        {SECTIONS.map(({ id, label }) => (
           <li key={id} className={activeSection === id ? 'active' : ''}>
-            <a href={`#${id}`}>{id.charAt(0).toUpperCase() + id.slice(1)}</a>
+            <a href={`#${id}`}>{label}</a>
           </li>
         ))}
       </ul>
@@ -116,7 +121,7 @@ function App() {
 
       const mid = window.scrollY + window.innerHeight / 2
       let current = ''
-      for (const id of SECTIONS) {
+      for (const { id } of SECTIONS) {
         const el = document.getElementById(id)
         if (el && el.offsetTop <= mid) current = id
       }
