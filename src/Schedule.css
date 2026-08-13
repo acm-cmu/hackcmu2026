@@ -242,9 +242,7 @@
   color: var(--charcoal);
   opacity: 0.72;
   margin-top: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
 }
 
 @media (max-width: 720px) {
@@ -283,12 +281,6 @@
     text-align: left;
     color: var(--gold);
     font-size: 12px;
-  }
-
-  .schedule-desc {
-    white-space: normal;
-    overflow: visible;
-    text-overflow: clip;
   }
 
   .schedule-row:nth-child(even) {
