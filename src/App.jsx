@@ -38,30 +38,28 @@ function ThemeToggle({ theme, onToggle }) {
   )
 }
 
-const CLOUD_RADIUS = 200
-const CLOUD_SPACING = 200
-const CLOUD_CUT = 300
+const CLOUD_CUT_RATIO = 0.21
+const CLOUD_CUT_MIN = 160
+const CLOUD_CUT_MAX = 360
 
-function SidebarClouds({ height }) {
-  const count = Math.ceil(height / CLOUD_SPACING) + 3
-  const startY = -CLOUD_SPACING
+function SidebarClouds({ width, height }) {
+  const cut = Math.min(CLOUD_CUT_MAX, Math.max(CLOUD_CUT_MIN, width * CLOUD_CUT_RATIO))
+  const radius = (cut * 2) / 3
+  const spacing = radius
+  const count = Math.ceil(height / spacing) + 3
+  const startY = -spacing
 
   return (
     <svg
       className="sidebar-clouds"
-      width={CLOUD_CUT}
+      width={cut}
       height={height}
-      viewBox={`0 0 ${CLOUD_CUT} ${height}`}
+      viewBox={`0 0 ${cut} ${height}`}
       preserveAspectRatio="none"
       aria-hidden="true"
     >
       {Array.from({ length: count }).map((_, i) => (
-        <circle
-          key={i}
-          cx={CLOUD_CUT - CLOUD_RADIUS}
-          cy={startY + i * CLOUD_SPACING}
-          r={CLOUD_RADIUS}
-        />
+        <circle key={i} cx={cut - radius} cy={startY + i * spacing} r={radius} />
       ))}
     </svg>
   )
@@ -91,13 +89,19 @@ function App() {
   const [viewportHeight, setViewportHeight] = useState(
     typeof window === 'undefined' ? 0 : window.innerHeight,
   )
+  const [viewportWidth, setViewportWidth] = useState(
+    typeof window === 'undefined' ? 0 : window.innerWidth,
+  )
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
   }, [theme])
 
   useEffect(() => {
-    const onResize = () => setViewportHeight(window.innerHeight)
+    const onResize = () => {
+      setViewportHeight(window.innerHeight)
+      setViewportWidth(window.innerWidth)
+    }
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
@@ -136,7 +140,7 @@ function App() {
   return (
     <>
       <ThemeToggle theme={theme} onToggle={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))} />
-      <SidebarClouds height={viewportHeight} />
+      <SidebarClouds width={viewportWidth} height={viewportHeight} />
       <SideNav activeSection={activeSection} progress={progress} />
 
       <section className="hero" id="home">

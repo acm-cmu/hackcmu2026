@@ -2,7 +2,7 @@
   position: relative;
   z-index: 16;
   width: 100%;
-  max-width: 640px;
+  max-width: clamp(420px, 34vw, 900px);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
