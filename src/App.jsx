@@ -110,11 +110,14 @@ function CloudTrail({ width }) {
   )
 }
 
-function SideNav({ activeSection, progress }) {
+function SideNav({ activeSection }) {
+  const index = SECTIONS.findIndex(({ id }) => id === activeSection)
+  const fillPercent = index === -1 ? 0 : (index / (SECTIONS.length - 1)) * 100
+
   return (
     <nav className="side-nav" aria-label="Section navigation">
       <div className="side-nav-track">
-        <div className="side-nav-progress" style={{ height: `${progress}%` }} />
+        <div className="side-nav-progress" style={{ height: `${fillPercent}%` }} />
       </div>
       <ul>
         {SECTIONS.map(({ id, label }) => (
@@ -129,7 +132,6 @@ function SideNav({ activeSection, progress }) {
 
 function App() {
   const [theme, setTheme] = useState('dark')
-  const [progress, setProgress] = useState(0)
   const [activeSection, setActiveSection] = useState('')
   const [viewportHeight, setViewportHeight] = useState(
     typeof window === 'undefined' ? 0 : window.innerHeight,
@@ -156,9 +158,6 @@ function App() {
 
     const measure = () => {
       raf = null
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight
-      setProgress(scrollable > 0 ? Math.min(100, (window.scrollY / scrollable) * 100) : 0)
-
       const mid = window.scrollY + window.innerHeight / 2
       let current = ''
       for (const { id } of SECTIONS) {
@@ -186,7 +185,7 @@ function App() {
     <>
       <ThemeToggle theme={theme} onToggle={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))} />
       <SidebarClouds width={viewportWidth} height={viewportHeight} />
-      <SideNav activeSection={activeSection} progress={progress} />
+      <SideNav activeSection={activeSection} />
 
       <section className="hero" id="home">
         <div className="hero-art">
@@ -210,6 +209,17 @@ function App() {
             />
           </div>
         </div>
+      </section>
+
+      <CloudTrail width={viewportWidth} />
+
+      <section className="intro" id="about">
+        <h2>What is HackCMU?</h2>
+        <p className="intro-text">
+          HackCMU is Carnegie Mellon's premier hackathon, a 24-hour beginner-friendly challenge
+          where creativity, code, and caffeine collide. Rally your crew and turn bold ideas into
+          reality!
+        </p>
       </section>
 
       <CloudTrail width={viewportWidth} />
