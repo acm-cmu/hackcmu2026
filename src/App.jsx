@@ -4,9 +4,9 @@ import hackcmuLabel from './assets/hackcmu-label-trim.png'
 import board from './assets/board-trim.png'
 import ticketBooth from './assets/ticket-booth-trim.png'
 import emblem from './assets/emblem.svg'
-import sponsorsLogos from './assets/sponsors.svg'
 import Schedule from './Schedule.jsx'
 import Tracks from './Tracks.jsx'
+import Sponsors from './Sponsors.jsx'
 import './App.css'
 
 const APPLY_FORM_URL = 'https://forms.gle/2ZbetvDn44GPYP6GA'
@@ -198,9 +198,7 @@ function App() {
       </section>
 
       <section className="sponsors" id="sponsors">
-        <h2>Sponsors</h2>
-        <p className="section-note">Coming soon.</p>
-        <img className="sponsors-logos" src={sponsorsLogos} alt="Our sponsors" />
+        <Sponsors />
       </section>
 
       <footer className="site-footer">
