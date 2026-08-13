@@ -131,13 +131,14 @@
 }
 
 .intro {
-  background: #cbe6f5;
+  background: var(--intro-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 14px;
   padding: 56px 6vw 56px clamp(340px, 26vw, 420px);
+  transition: background 0.3s;
 
   @media (max-width: 900px) {
     padding: 40px 24px;
@@ -145,16 +146,18 @@
 }
 
 .intro h2 {
-  color: var(--charcoal);
+  color: var(--intro-ink);
+  transition: color 0.3s;
 }
 
 .intro-text {
   max-width: 640px;
-  color: var(--charcoal);
+  color: var(--intro-ink);
   opacity: 0.8;
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.6;
+  transition: color 0.3s;
 }
 
 .hero-art {
@@ -197,6 +200,7 @@
   align-items: center;
   gap: 32px;
   padding: 96px clamp(24px, 4vw, 56px) 96px clamp(340px, 26vw, 420px);
+  transition: background 0.3s;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
@@ -333,7 +337,7 @@
 
 .faq {
   position: relative;
-  background-color: #ecdfc4;
+  background-color: var(--faq-bg);
   background-image:
     repeating-linear-gradient(
       100deg,
@@ -350,6 +354,7 @@
   text-align: center;
   padding: 96px 6vw 96px clamp(340px, 26vw, 420px);
   min-height: 60svh;
+  transition: background-color 0.3s;
 
   @media (max-width: 900px) {
     padding: 64px 24px;
@@ -357,7 +362,7 @@
 }
 
 .sponsors {
-  background-color: #7a1b28;
+  background-color: var(--sponsors-bg);
   background-image:
     linear-gradient(335deg, rgba(0, 0, 0, 0.35) 23px, transparent 23px),
     linear-gradient(155deg, rgba(0, 0, 0, 0.35) 23px, transparent 23px),
@@ -373,6 +378,7 @@
   gap: 40px;
   padding: 96px 6vw 96px clamp(340px, 26vw, 420px);
   min-height: 50svh;
+  transition: background-color 0.3s;
 
   @media (max-width: 900px) {
     padding: 64px 24px;
@@ -380,13 +386,14 @@
 }
 
 .site-footer {
-  background: #000;
+  background: var(--footer-bg);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 6px;
   text-align: right;
   padding: 32px 6vw 32px 40px;
+  transition: background 0.3s;
 }
 
 .footer-conducted {

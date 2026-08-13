@@ -10,6 +10,15 @@ import Faq from './Faq.jsx'
 import Sponsors from './Sponsors.jsx'
 import './App.css'
 
+const DAY_START_HOUR = 7
+const DAY_END_HOUR = 19
+
+function getTimeOfDayTheme() {
+  if (typeof window === 'undefined') return 'dark'
+  const hour = new Date().getHours()
+  return hour >= DAY_START_HOUR && hour < DAY_END_HOUR ? 'light' : 'dark'
+}
+
 const APPLY_FORM_URL = 'https://forms.gle/2ZbetvDn44GPYP6GA'
 const SECTIONS = [
   { id: 'home', label: 'Station' },
@@ -131,7 +140,7 @@ function SideNav({ activeSection }) {
 }
 
 function App() {
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState(getTimeOfDayTheme)
   const [activeSection, setActiveSection] = useState('')
   const [viewportHeight, setViewportHeight] = useState(
     typeof window === 'undefined' ? 0 : window.innerHeight,
