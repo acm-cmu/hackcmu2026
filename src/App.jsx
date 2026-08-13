@@ -255,7 +255,10 @@ function App() {
       <CloudTrail width={viewportWidth} />
 
       <footer className="site-footer">
-        <p>HackCMU 2026 · Carnegie Mellon University</p>
+        <p className="footer-conducted">Conducted by ACM@CMU</p>
+        <p className="footer-note">
+          HackCMU acknowledges the use of AI tools to assist in event organization and materials.
+        </p>
       </footer>
     </>
   )
