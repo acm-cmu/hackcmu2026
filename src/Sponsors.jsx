@@ -1,12 +1,53 @@
 import { useEffect, useState } from 'react'
 import dogLogo from './assets/logo.png'
+import adobeLogo from './assets/sponsor_logos/adobe_logo.png'
+import citadelLogo from './assets/sponsor_logos/citadel_logo.png'
+import cursorLogo from './assets/sponsor_logos/cursor_logo.png'
+import deShawLogo from './assets/sponsor_logos/de_shaw_logo.png'
+import garnerHealthLogo from './assets/sponsor_logos/garner_health_logo.png'
+import hrtLogo from './assets/sponsor_logos/hrt_logo.png'
+import janeStreetLogo from './assets/sponsor_logos/jane_street_logo.png'
+import lockheedMartinLogo from './assets/sponsor_logos/lockheed_martin_logo.png'
+import microsoftLogo from './assets/sponsor_logos/microsoft_logo.png'
+import quadratureLogo from './assets/sponsor_logos/quadrature_logo.png'
+import scmLogo from './assets/sponsor_logos/scm_logo.png'
+import texasInstrumentsLogo from './assets/sponsor_logos/texas_instruments_logo.png'
+import visaLogo from './assets/sponsor_logos/visa_logo.png'
 import './Sponsors.css'
 
-const SPONSORS = Array.from({ length: 16 }, (_, i) => ({
-  name: `Company ${i + 1}`,
-  logo: dogLogo,
-  blurb: `Company ${i + 1} is a valued sponsor of HackCMU 2026. More details coming soon.`,
-}))
+const SPONSOR_LIST = [
+  { name: 'Adobe', logo: adobeLogo },
+  { name: 'Citadel', logo: citadelLogo },
+  { name: 'Cursor', logo: cursorLogo },
+  { name: 'DE Shaw', logo: deShawLogo },
+  { name: 'Garner Health', logo: garnerHealthLogo },
+  { name: 'HRT', logo: hrtLogo },
+  { name: 'Jane Street', logo: janeStreetLogo },
+  { name: 'Lockheed Martin', logo: lockheedMartinLogo },
+  { name: 'Microsoft', logo: microsoftLogo },
+  { name: 'Quadrature', logo: quadratureLogo },
+  { name: 'SCM', logo: scmLogo },
+  { name: 'Texas Instruments', logo: texasInstrumentsLogo },
+  { name: 'Visa', logo: visaLogo },
+]
+
+const TOTAL_SPONSOR_SLOTS = 16
+
+const SPONSORS = Array.from({ length: TOTAL_SPONSOR_SLOTS }, (_, i) => {
+  const sponsor = SPONSOR_LIST[i]
+  if (sponsor) {
+    return {
+      name: sponsor.name,
+      logo: sponsor.logo,
+      blurb: `${sponsor.name} is a valued sponsor of HackCMU 2026. More details coming soon.`,
+    }
+  }
+  return {
+    name: 'Coming Soon',
+    logo: dogLogo,
+    blurb: 'This spot is reserved for a future sponsor — stay tuned!',
+  }
+})
 
 function CornerNails() {
   return (
@@ -40,9 +81,9 @@ function Sponsors() {
       </div>
 
       <div className="sponsors-grid">
-        {SPONSORS.map((sponsor) => (
+        {SPONSORS.map((sponsor, i) => (
           <button
-            key={sponsor.name}
+            key={i}
             type="button"
             className="sponsor-frame"
             onClick={() => setActiveSponsor(sponsor)}

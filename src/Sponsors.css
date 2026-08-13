@@ -93,13 +93,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1c0a0c;
+  background-color: #f7f3ea;
   border: 6px solid var(--gold);
   border-radius: 4px;
-  padding: 16%;
+  padding: 14%;
   box-shadow:
     0 0 0 2px rgba(0, 0, 0, 0.4),
-    inset 0 0 0 3px rgba(255, 255, 255, 0.08),
+    inset 0 0 0 3px rgba(0, 0, 0, 0.06),
     0 12px 22px -10px rgba(0, 0, 0, 0.6);
 }
 
