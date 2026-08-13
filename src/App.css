@@ -74,13 +74,13 @@
 .side-nav ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 24px 0;
   display: flex;
   flex-direction: column;
 }
 
 .side-nav li {
-  padding: 40px 0;
+  padding: 16px 0;
 }
 
 .side-nav a {
