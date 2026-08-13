@@ -8,6 +8,7 @@ import Schedule from './Schedule.jsx'
 import Tracks from './Tracks.jsx'
 import Faq from './Faq.jsx'
 import Sponsors from './Sponsors.jsx'
+import LeafTrail from './LeafTrail.jsx'
 import './App.css'
 
 const DAY_START_HOUR = 7
@@ -195,6 +196,7 @@ function App() {
       <ThemeToggle theme={theme} onToggle={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))} />
       <SidebarClouds width={viewportWidth} height={viewportHeight} />
       <SideNav activeSection={activeSection} />
+      <LeafTrail />
 
       <section className="hero" id="home">
         <div className="hero-art">
