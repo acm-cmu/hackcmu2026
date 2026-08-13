@@ -99,6 +99,12 @@
   animation: faq-fade 0.2s ease;
 }
 
+.faq-answer a {
+  color: var(--navy-line);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 @keyframes faq-fade {
   from {
     opacity: 0;
