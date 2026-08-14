@@ -186,6 +186,7 @@
 
   @media (max-width: 768px) {
     align-items: center;
+    justify-content: center;
     padding: 24px 0;
   }
 }
@@ -234,6 +235,11 @@
   width: 100%;
   height: auto;
   border-radius: 18px;
+
+  @media (max-width: 768px) {
+    border: 8px solid var(--gold);
+    box-shadow: 0 14px 28px -10px rgba(0, 0, 0, 0.55);
+  }
 }
 
 .hero-art .hackcmu-label {
