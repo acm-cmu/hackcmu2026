@@ -128,6 +128,11 @@
   padding: 0 0 24px;
   min-height: 100svh;
   transition: background 0.3s;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    padding: 24px 0;
+  }
 }
 
 .intro {
@@ -163,6 +168,10 @@
 .hero-art {
   position: relative;
   width: 80vw;
+
+  @media (max-width: 768px) {
+    width: 94vw;
+  }
 }
 
 .hero-art .foreground {
@@ -181,6 +190,10 @@
   transform: translate(-50%, -50%) rotate(-4deg);
   filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.4));
   pointer-events: none;
+
+  @media (max-width: 768px) {
+    min-width: 0;
+  }
 }
 
 .hero-art .hero-emblem {
@@ -191,6 +204,10 @@
   min-width: 140px;
   height: auto;
   pointer-events: none;
+
+  @media (max-width: 768px) {
+    min-width: 0;
+  }
 }
 
 .board-tickets {
