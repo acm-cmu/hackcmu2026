@@ -327,7 +327,7 @@
   text-align: center;
   color: var(--charcoal);
   font-family: var(--dokdo);
-  font-size: clamp(35px, 2.4vw, 24px);
+  font-size: clamp(16px, 2.4vw, 35px);
   line-height: 130%;
   padding: 8%;
 }
