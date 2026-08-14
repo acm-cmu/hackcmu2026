@@ -80,6 +80,10 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: clip;
+
+  @media (max-width: 768px) {
+    padding-bottom: 56px;
+  }
 }
 
 h1,

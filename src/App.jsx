@@ -140,6 +140,26 @@ function SideNav({ activeSection }) {
   )
 }
 
+function MobileNav({ activeSection }) {
+  const index = SECTIONS.findIndex(({ id }) => id === activeSection)
+  const fillPercent = index === -1 ? 0 : (index / (SECTIONS.length - 1)) * 100
+
+  return (
+    <nav className="mobile-nav" aria-label="Section navigation">
+      <div className="mobile-nav-track">
+        <div className="mobile-nav-progress" style={{ width: `${fillPercent}%` }} />
+      </div>
+      <ul>
+        {SECTIONS.map(({ id, label }) => (
+          <li key={id} className={activeSection === id ? 'active' : ''}>
+            <a href={`#${id}`}>{label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
 function App() {
   const [theme, setTheme] = useState(getTimeOfDayTheme)
   const [activeSection, setActiveSection] = useState('')
@@ -196,6 +216,7 @@ function App() {
       <ThemeToggle theme={theme} onToggle={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))} />
       <SidebarClouds width={viewportWidth} height={viewportHeight} />
       <SideNav activeSection={activeSection} />
+      <MobileNav activeSection={activeSection} />
       <LeafTrail />
 
       <section className="hero" id="home">
