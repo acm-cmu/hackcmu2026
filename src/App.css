@@ -237,8 +237,13 @@
   border-radius: 18px;
 
   @media (max-width: 768px) {
-    border: 8px solid var(--gold);
-    box-shadow: 0 14px 28px -10px rgba(0, 0, 0, 0.55);
+    border: 10px solid var(--gold);
+    box-shadow:
+      0 0 0 2px rgba(0, 0, 0, 0.5),
+      0 0 0 5px var(--gold-light),
+      inset 0 2px 4px rgba(255, 255, 255, 0.55),
+      inset 0 -3px 6px rgba(0, 0, 0, 0.35),
+      0 20px 36px -14px rgba(0, 0, 0, 0.6);
   }
 }
 
