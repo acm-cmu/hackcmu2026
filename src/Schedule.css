@@ -44,11 +44,12 @@
 
 .schedule-title {
   font-family: var(--dokdo);
-  color: var(--navy-line);
+  color: var(--schedule-title-color);
   font-size: clamp(24px, 3vw, 32px);
   letter-spacing: 2px;
   white-space: nowrap;
-  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.4);
+  text-shadow: 0 2px 0 var(--schedule-title-shadow);
+  transition: color 0.3s;
 }
 
 .schedule-day {

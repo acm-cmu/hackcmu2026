@@ -23,6 +23,8 @@
   --faq-ink-rgb: 232, 220, 192;
   --sponsors-bg: #4a1116;
   --footer-bg: #000000;
+  --schedule-title-color: var(--cream);
+  --schedule-title-shadow: rgba(0, 0, 0, 0.4);
 
   --sans: 'Quicksand', system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
@@ -64,6 +66,8 @@
   --faq-ink-rgb: 36, 31, 20;
   --sponsors-bg: #7a1b28;
   --footer-bg: #1c1410;
+  --schedule-title-color: var(--navy-line);
+  --schedule-title-shadow: rgba(255, 255, 255, 0.4);
 }
 
 * {
