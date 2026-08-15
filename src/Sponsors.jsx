@@ -10,6 +10,7 @@ import janeStreetLogo from './assets/sponsor_logos/jane_street_logo.png'
 import lockheedMartinLogo from './assets/sponsor_logos/lockheed_martin_logo.png'
 import microsoftLogo from './assets/sponsor_logos/microsoft_logo.png'
 import quadratureLogo from './assets/sponsor_logos/quadrature_logo.png'
+import sandiaLogo from './assets/sponsor_logos/sandia_logo.png'
 import scmLogo from './assets/sponsor_logos/scm_logo.png'
 import texasInstrumentsLogo from './assets/sponsor_logos/texas_instruments_logo.png'
 import visaLogo from './assets/sponsor_logos/visa_logo.png'
@@ -26,6 +27,7 @@ const SPONSOR_LIST = [
   { name: 'Lockheed Martin', logo: lockheedMartinLogo },
   { name: 'Microsoft', logo: microsoftLogo },
   { name: 'Quadrature', logo: quadratureLogo },
+  { name: 'Sandia', logo: sandiaLogo },
   { name: 'SCM', logo: scmLogo },
   { name: 'Texas Instruments', logo: texasInstrumentsLogo },
   { name: 'Visa', logo: visaLogo },
