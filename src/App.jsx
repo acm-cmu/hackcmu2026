@@ -37,9 +37,9 @@ function ThemeToggle({ theme, onToggle }) {
   )
 }
 
-const CLOUD_RADIUS = 200
-const CLOUD_SPACING = 200
-const CLOUD_CUT = 300
+const CLOUD_RADIUS = 170
+const CLOUD_SPACING = 170
+const CLOUD_CUT = 270
 
 function SidebarClouds({ height }) {
   const count = Math.ceil(height / CLOUD_SPACING) + 3
