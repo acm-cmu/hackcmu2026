@@ -6,7 +6,6 @@
   --cream: #fee7d1;
   --slate: #acb1c5;
   --charcoal: #06212b;
-  --ticket-bg: #ffdeab;
 
   --bg: var(--navy-deep);
   --bg-elevated: rgba(255, 255, 255, 0.06);
@@ -16,9 +15,23 @@
   --shadow:
     rgba(0, 0, 0, 0.35) 0 10px 25px -5px, rgba(0, 0, 0, 0.2) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --ticket-bg: #6b4a26;
+  --intro-bg: #16213e;
+  --intro-ink: var(--cream);
+  --faq-bg: #2b2419;
+  --faq-ink: #e8dcc0;
+  --faq-ink-rgb: 232, 220, 192;
+  --sponsors-bg: #4a1116;
+  --footer-bg: #000000;
+  --schedule-title-color: var(--cream);
+  --schedule-title-shadow: rgba(0, 0, 0, 0.4);
+
+  --sans: 'Quicksand', system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
   --dokdo: 'East Sea Dokdo', cursive;
+  --cinzel: 'Cinzel', serif;
+  --playfair: 'Playfair Display', serif;
+  --newsprint: Georgia, 'Times New Roman', serif;
   --sidebar-cloud: #d6dce0;
 
   font: 24px/300% var(--dokdo);
@@ -44,6 +57,17 @@
   --shadow:
     rgba(43, 56, 106, 0.18) 0 10px 25px -5px,
     rgba(43, 56, 106, 0.12) 0 4px 6px -2px;
+
+  --ticket-bg: #ffdeab;
+  --intro-bg: #cbe6f5;
+  --intro-ink: var(--charcoal);
+  --faq-bg: #ecdfc4;
+  --faq-ink: #241f14;
+  --faq-ink-rgb: 36, 31, 20;
+  --sponsors-bg: #7a1b28;
+  --footer-bg: #1c1410;
+  --schedule-title-color: var(--navy-line);
+  --schedule-title-shadow: rgba(255, 255, 255, 0.4);
 }
 
 * {
@@ -60,6 +84,10 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: clip;
+
+  @media (max-width: 768px) {
+    padding-bottom: 56px;
+  }
 }
 
 h1,

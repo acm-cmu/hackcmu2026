@@ -1,0 +1,235 @@
+.sponsors-sign {
+  position: relative;
+  background-color: var(--cream);
+  border: 3px solid var(--gold);
+  border-radius: 6px;
+  box-shadow: 0 16px 26px -10px rgba(0, 0, 0, 0.6);
+  padding: 16px 44px;
+}
+
+.corner-nail {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f8e0a0, #dfa121 55%, #8a5f16 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), inset 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.corner-nail-tl {
+  top: 9px;
+  left: 9px;
+}
+
+.corner-nail-tr {
+  top: 9px;
+  right: 9px;
+}
+
+.corner-nail-bl {
+  bottom: 9px;
+  left: 9px;
+}
+
+.corner-nail-br {
+  bottom: 9px;
+  right: 9px;
+}
+
+.sponsors-sign-top h2 {
+  color: var(--charcoal);
+  margin: 0;
+}
+
+.sponsors-sign-bottom {
+  max-width: 640px;
+}
+
+.sponsors-sign-bottom p {
+  color: var(--charcoal);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sponsors-sign-bottom p + p {
+  margin-top: 12px;
+}
+
+.sponsors-sign-bottom a {
+  color: var(--navy-line);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+  width: min(880px, 100%);
+}
+
+.sponsor-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.sponsor-frame:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+.sponsor-frame-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f3ea;
+  border: 6px solid var(--gold);
+  border-radius: 4px;
+  padding: 14%;
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 3px rgba(0, 0, 0, 0.06),
+    0 12px 22px -10px rgba(0, 0, 0, 0.6);
+}
+
+.sponsor-frame-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.sponsor-frame-name {
+  font-family: var(--cinzel);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: var(--cream);
+  text-align: center;
+}
+
+.sponsor-click-hint {
+  margin-top: -6px;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sponsor-frame:hover .sponsor-click-hint {
+  opacity: 1;
+}
+
+.sponsor-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.6);
+  animation: sponsor-fade 0.2s ease;
+}
+
+.sponsor-modal {
+  position: relative;
+  width: min(400px, 100%);
+  background: #fff9ee;
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  padding: 32px 28px 28px;
+  text-align: center;
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.6);
+  animation: sponsor-pop 0.22s ease;
+}
+
+.sponsor-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: var(--ticket-bg);
+  color: var(--navy-line);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sponsor-modal-close:hover {
+  background: var(--gold);
+  color: #fff9ee;
+}
+
+.sponsor-modal-logo {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+  margin: 0 auto 14px;
+  display: block;
+}
+
+.sponsor-modal-title {
+  font-family: var(--dokdo);
+  color: var(--navy-line);
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.sponsor-modal-blurb {
+  font-family: var(--sans);
+  color: var(--charcoal);
+  font-size: 14.5px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+@keyframes sponsor-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sponsor-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 720px) {
+  .sponsors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

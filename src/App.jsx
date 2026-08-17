@@ -4,11 +4,30 @@ import hackcmuLabel from './assets/hackcmu-label-trim.png'
 import board from './assets/board-trim.png'
 import ticketBooth from './assets/ticket-booth-trim.png'
 import emblem from './assets/emblem.svg'
-import sponsorsLogos from './assets/sponsors.svg'
+import Schedule from './Schedule.jsx'
+import Tracks from './Tracks.jsx'
+import Faq from './Faq.jsx'
+import Sponsors from './Sponsors.jsx'
+import LeafTrail from './LeafTrail.jsx'
 import './App.css'
 
-const APPLY_FORM_URL = '#apply-placeholder'
-const SECTIONS = ['tickets', 'tracks', 'sponsors']
+const DAY_START_HOUR = 7
+const DAY_END_HOUR = 19
+
+function getTimeOfDayTheme() {
+  if (typeof window === 'undefined') return 'dark'
+  const hour = new Date().getHours()
+  return hour >= DAY_START_HOUR && hour < DAY_END_HOUR ? 'light' : 'dark'
+}
+
+const APPLY_FORM_URL = 'https://forms.gle/2ZbetvDn44GPYP6GA'
+const SECTIONS = [
+  { id: 'home', label: 'Station' },
+  { id: 'tickets', label: 'Tickets' },
+  { id: 'tracks', label: 'Tracks' },
+  { id: 'faq', label: 'FAQ' },
+  { id: 'sponsors', label: 'Sponsors' },
+]
 
 function ThemeToggle({ theme, onToggle }) {
   return (
@@ -37,45 +56,103 @@ function ThemeToggle({ theme, onToggle }) {
   )
 }
 
-const CLOUD_RADIUS = 170
-const CLOUD_SPACING = 170
-const CLOUD_CUT = 270
+const CLOUD_CUT_RATIO = 0.21
+const CLOUD_CUT_MIN = 160
+const CLOUD_CUT_MAX = 360
 
-function SidebarClouds({ height }) {
-  const count = Math.ceil(height / CLOUD_SPACING) + 3
-  const startY = -CLOUD_SPACING
+function SidebarClouds({ width, height }) {
+  const cut = Math.min(CLOUD_CUT_MAX, Math.max(CLOUD_CUT_MIN, width * CLOUD_CUT_RATIO))
+  const radius = (cut * 2) / 3
+  const spacing = radius
+  const count = Math.ceil(height / spacing) + 3
+  const startY = -spacing
 
   return (
     <svg
       className="sidebar-clouds"
-      width={CLOUD_CUT}
+      width={cut}
       height={height}
-      viewBox={`0 0 ${CLOUD_CUT} ${height}`}
+      viewBox={`0 0 ${cut} ${height}`}
       preserveAspectRatio="none"
       aria-hidden="true"
     >
       {Array.from({ length: count }).map((_, i) => (
-        <circle
-          key={i}
-          cx={CLOUD_CUT - CLOUD_RADIUS}
-          cy={startY + i * CLOUD_SPACING}
-          r={CLOUD_RADIUS}
-        />
+        <circle key={i} cx={cut - radius} cy={startY + i * spacing} r={radius} />
       ))}
     </svg>
   )
 }
 
-function SideNav({ activeSection, progress }) {
+const CLOUD_UNIT_WIDTH = 96
+const CLOUD_UNIT_STEP = 42
+
+function CloudTrail({ width }) {
+  const count = Math.ceil(width / CLOUD_UNIT_STEP) + 3
+  const startX = -CLOUD_UNIT_WIDTH
+
+  return (
+    <div className="cloud-trail-wrap">
+      <svg
+        className="cloud-trail"
+        width="100%"
+        height="52"
+        viewBox={`0 0 ${width} 52`}
+        preserveAspectRatio="none"
+        fill="#ffffff"
+        aria-hidden="true"
+      >
+        {Array.from({ length: count }).map((_, i) => {
+          const x = startX + i * CLOUD_UNIT_STEP
+          const scale = i % 3 === 0 ? 1.1 : i % 3 === 1 ? 0.95 : 1.02
+          const y = 2 + (i % 2) * 4
+          return (
+            <g key={i} transform={`translate(${x}, ${y}) scale(${scale})`}>
+              <ellipse cx="42" cy="28" rx="34" ry="10" />
+              <circle cx="14" cy="18" r="12" />
+              <circle cx="34" cy="14" r="16" />
+              <circle cx="54" cy="17" r="13" />
+              <circle cx="70" cy="20" r="10" />
+            </g>
+          )
+        })}
+      </svg>
+    </div>
+  )
+}
+
+function SideNav({ activeSection }) {
+  const index = SECTIONS.findIndex(({ id }) => id === activeSection)
+  const fillPercent = index === -1 ? 0 : (index / (SECTIONS.length - 1)) * 100
+
   return (
     <nav className="side-nav" aria-label="Section navigation">
       <div className="side-nav-track">
-        <div className="side-nav-progress" style={{ height: `${progress}%` }} />
+        <div className="side-nav-progress" style={{ height: `${fillPercent}%` }} />
       </div>
       <ul>
-        {SECTIONS.map((id) => (
+        {SECTIONS.map(({ id, label }) => (
           <li key={id} className={activeSection === id ? 'active' : ''}>
-            <a href={`#${id}`}>{id.charAt(0).toUpperCase() + id.slice(1)}</a>
+            <a href={`#${id}`}>{label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+function MobileNav({ activeSection }) {
+  const index = SECTIONS.findIndex(({ id }) => id === activeSection)
+  const fillPercent = index === -1 ? 0 : (index / (SECTIONS.length - 1)) * 100
+
+  return (
+    <nav className="mobile-nav" aria-label="Section navigation">
+      <div className="mobile-nav-track">
+        <div className="mobile-nav-progress" style={{ width: `${fillPercent}%` }} />
+      </div>
+      <ul>
+        {SECTIONS.map(({ id, label }) => (
+          <li key={id} className={activeSection === id ? 'active' : ''}>
+            <a href={`#${id}`}>{label}</a>
           </li>
         ))}
       </ul>
@@ -84,11 +161,13 @@ function SideNav({ activeSection, progress }) {
 }
 
 function App() {
-  const [theme, setTheme] = useState('dark')
-  const [progress, setProgress] = useState(0)
+  const [theme, setTheme] = useState(getTimeOfDayTheme)
   const [activeSection, setActiveSection] = useState('')
   const [viewportHeight, setViewportHeight] = useState(
     typeof window === 'undefined' ? 0 : window.innerHeight,
+  )
+  const [viewportWidth, setViewportWidth] = useState(
+    typeof window === 'undefined' ? 0 : window.innerWidth,
   )
 
   useEffect(() => {
@@ -96,7 +175,10 @@ function App() {
   }, [theme])
 
   useEffect(() => {
-    const onResize = () => setViewportHeight(window.innerHeight)
+    const onResize = () => {
+      setViewportHeight(window.innerHeight)
+      setViewportWidth(window.innerWidth)
+    }
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
@@ -106,12 +188,9 @@ function App() {
 
     const measure = () => {
       raf = null
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight
-      setProgress(scrollable > 0 ? Math.min(100, (window.scrollY / scrollable) * 100) : 0)
-
       const mid = window.scrollY + window.innerHeight / 2
       let current = ''
-      for (const id of SECTIONS) {
+      for (const { id } of SECTIONS) {
         const el = document.getElementById(id)
         if (el && el.offsetTop <= mid) current = id
       }
@@ -135,8 +214,10 @@ function App() {
   return (
     <>
       <ThemeToggle theme={theme} onToggle={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))} />
-      <SidebarClouds height={viewportHeight} />
-      <SideNav activeSection={activeSection} progress={progress} />
+      <SidebarClouds width={viewportWidth} height={viewportHeight} />
+      <SideNav activeSection={activeSection} />
+      <MobileNav activeSection={activeSection} />
+      <LeafTrail />
 
       <section className="hero" id="home">
         <div className="hero-art">
@@ -162,7 +243,22 @@ function App() {
         </div>
       </section>
 
+      <CloudTrail width={viewportWidth} />
+
+      <section className="intro" id="about">
+        <h2>What is HackCMU?</h2>
+        <p className="intro-text">
+          HackCMU is Carnegie Mellon's premier hackathon, a 24-hour beginner-friendly challenge
+          where creativity, code, and caffeine collide. Rally your crew and turn bold ideas into
+          reality!
+        </p>
+      </section>
+
+      <CloudTrail width={viewportWidth} />
+
       <section className="board-tickets" id="tickets">
+        <Schedule />
+
         <div className="ticket-col">
           <img
             className="ticket-booth-img"
@@ -172,23 +268,40 @@ function App() {
           <a className="apply-btn" href={APPLY_FORM_URL} target="_blank" rel="noopener noreferrer">
             Get Ticket
           </a>
+          <span className="apply-btn-hint">click me!</span>
         </div>
       </section>
 
+      <CloudTrail width={viewportWidth} />
+
       <section className="tracks" id="tracks">
-        <h2>Tracks</h2>
-        <p className="section-note">Coming soon.</p>
-        <div className="tracks-empty" />
+        <h2 className="tracks-title">Tracks</h2>
+        <p className="tracks-subtitle">
+          Track themes will be announced during the Opening Ceremony on Friday, September 11.
+          Teams will choose a track when submitting your project on Saturday.
+        </p>
+        <Tracks />
       </section>
+
+      <CloudTrail width={viewportWidth} />
+
+      <section className="faq" id="faq">
+        <Faq />
+      </section>
+
+      <CloudTrail width={viewportWidth} />
 
       <section className="sponsors" id="sponsors">
-        <h2>Sponsors</h2>
-        <p className="section-note">Coming soon.</p>
-        <img className="sponsors-logos" src={sponsorsLogos} alt="Our sponsors" />
+        <Sponsors />
       </section>
 
+      <CloudTrail width={viewportWidth} />
+
       <footer className="site-footer">
-        <p>HackCMU 2026 · Carnegie Mellon University</p>
+        <p className="footer-conducted">Conducted by ACM@CMU</p>
+        <p className="footer-note">
+          HackCMU acknowledges the use of AI tools to assist in event organization and materials.
+        </p>
       </footer>
     </>
   )

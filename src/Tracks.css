@@ -1,0 +1,120 @@
+.tracks-row {
+  align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.track-icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 18px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.track-icon-btn:hover {
+  transform: translateY(-4px);
+}
+
+.track-icon-btn.active {
+  transform: translateY(-2px);
+}
+
+.track-icon-label {
+  font-family: var(--dokdo);
+  font-size: 19px;
+  color: var(--text-h);
+  white-space: nowrap;
+}
+
+.track-click-hint {
+  margin-top: -10px;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-style: italic;
+  font-weight: 600;
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.track-icon-btn:hover .track-click-hint {
+  opacity: 0.55;
+}
+
+.track-panel {
+  align-self: stretch;
+  position: relative;
+  margin-top: 20px;
+  padding: 22px 28px;
+  border-radius: 18px;
+  border: 2px solid var(--gold);
+  background: var(--bg-elevated);
+  text-align: left;
+  animation: track-panel-pop 0.22s ease;
+}
+
+.track-panel-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: transparent;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.track-panel-close:hover {
+  opacity: 0.7;
+}
+
+.track-panel-title {
+  font-family: var(--dokdo);
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.track-panel-desc {
+  font-family: var(--sans);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+@keyframes track-panel-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .tracks-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}

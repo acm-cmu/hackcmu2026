@@ -68,19 +68,19 @@
   left: 0;
   width: 100%;
   background: var(--gold);
-  transition: height 0.1s linear;
+  transition: height 0.3s ease;
 }
 
 .side-nav ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 24px 0;
   display: flex;
   flex-direction: column;
 }
 
 .side-nav li {
-  padding: 40px 0;
+  padding: 16px 0;
 }
 
 .side-nav a {
@@ -102,6 +102,77 @@
   opacity: 1;
 }
 
+.mobile-nav {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 25;
+  background: var(--charcoal);
+  border-top: 2px solid var(--gold);
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.mobile-nav-track {
+  position: relative;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mobile-nav-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 6px 4px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 6px 8px;
+  font-family: var(--dokdo);
+  font-size: 15px;
+  color: var(--gold);
+  opacity: 0.6;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.mobile-nav li.active a {
+  opacity: 1;
+}
+
+.cloud-trail-wrap {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 52px;
+  margin: -26px 0;
+  pointer-events: none;
+}
+
+.cloud-trail {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.18));
+}
+
 .hero {
   background: var(--bg);
   display: flex;
@@ -112,12 +183,51 @@
   padding: 0 0 24px;
   min-height: 100svh;
   transition: background 0.3s;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0;
+  }
+}
+
+.intro {
+  background: var(--intro-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: 56px 6vw 56px clamp(340px, 26vw, 420px);
+  transition: background 0.3s;
+
+  @media (max-width: 900px) {
+    padding: 40px 24px;
+  }
+}
+
+.intro h2 {
+  color: var(--intro-ink);
+  transition: color 0.3s;
+}
+
+.intro-text {
+  max-width: 640px;
+  color: var(--intro-ink);
+  opacity: 0.8;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  transition: color 0.3s;
 }
 
 .hero-art {
   position: relative;
   width: 80vw;
-  max-width: 1400px;
+
+  @media (max-width: 768px) {
+    width: 94vw;
+  }
 }
 
 .hero-art .foreground {
@@ -125,6 +235,16 @@
   width: 100%;
   height: auto;
   border-radius: 18px;
+
+  @media (max-width: 768px) {
+    border: 10px solid var(--gold);
+    box-shadow:
+      0 0 0 2px rgba(0, 0, 0, 0.5),
+      0 0 0 5px var(--gold-light),
+      inset 0 2px 4px rgba(255, 255, 255, 0.55),
+      inset 0 -3px 6px rgba(0, 0, 0, 0.35),
+      0 20px 36px -14px rgba(0, 0, 0, 0.6);
+  }
 }
 
 .hero-art .hackcmu-label {
@@ -136,6 +256,10 @@
   transform: translate(-50%, -50%) rotate(-4deg);
   filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.4));
   pointer-events: none;
+
+  @media (max-width: 768px) {
+    min-width: 0;
+  }
 }
 
 .hero-art .hero-emblem {
@@ -146,24 +270,32 @@
   min-width: 140px;
   height: auto;
   pointer-events: none;
+
+  @media (max-width: 768px) {
+    min-width: 0;
+  }
 }
 
 .board-tickets {
   background: var(--ticket-bg);
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   align-items: center;
-  justify-content: flex-end;
-  padding: 96px 6vw 96px 40px;
+  gap: 32px;
+  padding: 96px clamp(24px, 4vw, 56px) 96px clamp(340px, 26vw, 420px);
+  transition: background 0.3s;
 
   @media (max-width: 900px) {
+    grid-template-columns: 1fr;
     padding: 64px 24px;
+    gap: 48px;
   }
 }
 
 .ticket-col {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   gap: 28px;
 }
 
@@ -195,7 +327,7 @@
   text-align: center;
   color: var(--charcoal);
   font-family: var(--dokdo);
-  font-size: clamp(35px, 2.4vw, 24px);
+  font-size: clamp(16px, 2.4vw, 35px);
   line-height: 130%;
   padding: 8%;
 }
@@ -206,7 +338,8 @@
 
 .ticket-booth-img {
   display: block;
-  width: min(340px, 80%);
+  width: clamp(200px, 22vw, 480px);
+  max-width: 80%;
   height: auto;
   filter: drop-shadow(0 16px 24px rgba(6, 33, 43, 0.25));
 }
@@ -231,17 +364,37 @@
   transform: translateY(-2px) scale(1.03);
 }
 
+.apply-btn:hover ~ .apply-btn-hint {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.apply-btn-hint {
+  margin-top: -24px;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 600;
+  color: rgba(6, 33, 43, 0.55);
+}
+
 .tracks {
   background: var(--bg);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: right;
   gap: 12px;
-  padding: 96px 6vw 96px 40px;
+  padding: 96px 6vw 96px clamp(340px, 26vw, 420px);
   min-height: 60svh;
   transition: background 0.3s;
+
+  @media (max-width: 900px) {
+    padding: 64px 24px;
+  }
 }
 
 .section-note {
@@ -249,47 +402,101 @@
   opacity: 0.75;
 }
 
-.tracks-empty {
-  width: min(1000px, 100%);
-  flex: 1;
-  min-height: 220px;
-  margin-top: 24px;
-  border: 1px dashed var(--border);
-  border-radius: 18px;
+.tracks-title {
+  align-self: center;
+  text-align: center;
+}
+
+.tracks-subtitle {
+  align-self: center;
+  max-width: 640px;
+  color: var(--text);
+  opacity: 0.75;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.faq {
+  position: relative;
+  background-color: var(--faq-bg);
+  background-image:
+    repeating-linear-gradient(
+      100deg,
+      rgba(120, 100, 60, 0.03) 0px,
+      rgba(120, 100, 60, 0.03) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 55%, rgba(60, 45, 20, 0.14) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 96px 6vw 96px clamp(340px, 26vw, 420px);
+  min-height: 60svh;
+  transition: background-color 0.3s;
+
+  @media (max-width: 900px) {
+    padding: 64px 24px;
+  }
 }
 
 .sponsors {
-  background: #000;
+  background-color: var(--sponsors-bg);
+  background-image:
+    linear-gradient(335deg, rgba(0, 0, 0, 0.35) 23px, transparent 23px),
+    linear-gradient(155deg, rgba(0, 0, 0, 0.35) 23px, transparent 23px),
+    linear-gradient(335deg, rgba(0, 0, 0, 0.35) 23px, transparent 23px),
+    linear-gradient(155deg, rgba(0, 0, 0, 0.35) 23px, transparent 23px);
+  background-size: 58px 58px;
+  background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
   color: #fff;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-  text-align: right;
-  gap: 12px;
-  padding: 96px 6vw 96px 40px;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+  padding: 96px 6vw 96px clamp(340px, 26vw, 420px);
   min-height: 50svh;
-}
+  transition: background-color 0.3s;
 
-.sponsors h2 {
-  color: #fff;
-}
-
-.sponsors .section-note {
-  color: #fff;
-}
-
-.sponsors-logos {
-  display: block;
-  width: min(700px, 100%);
-  height: auto;
-  margin-top: 24px;
+  @media (max-width: 900px) {
+    padding: 64px 24px;
+  }
 }
 
 .site-footer {
-  background: #000;
-  color: rgba(255, 255, 255, 0.6);
+  background: var(--footer-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
   text-align: right;
-  font-size: 14px;
-  padding: 24px 6vw 24px 40px;
+  padding: 32px 6vw 32px 40px;
+  transition: background 0.3s;
+}
+
+.footer-conducted {
+  font-family: var(--cinzel);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.footer-note {
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.28);
+  white-space: nowrap;
+  max-width: 100%;
+
+  @media (max-width: 600px) {
+    white-space: normal;
+  }
 }
