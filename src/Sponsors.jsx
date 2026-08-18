@@ -37,7 +37,7 @@ const SPONSOR_LIST = [
   { name: 'Visa', logo: visaLogo },
 ]
 
-const TOTAL_SPONSOR_SLOTS = 16
+const TOTAL_SPONSOR_SLOTS = 20
 
 const SPONSORS = Array.from({ length: TOTAL_SPONSOR_SLOTS }, (_, i) => {
   const sponsor = SPONSOR_LIST[i]
