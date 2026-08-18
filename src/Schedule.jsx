@@ -7,13 +7,13 @@ const SCHEDULE = [
     events: [
       {
         time: '5:00 – 6:00 pm',
-        title: 'Check-In',
+        title: 'Boarding',
         location: 'Tepper Simmons Auditorium',
         desc: 'Check in with organizers and find your team members.',
       },
       {
         time: '6:00 – 6:30 pm',
-        title: 'Opening Ceremony',
+        title: 'Departure',
         location: 'Tepper Simmons Auditorium',
         desc: 'Join us for the opening ceremony of HackCMU 2026!',
       },
@@ -25,7 +25,7 @@ const SCHEDULE = [
       },
       {
         time: '12:00 – 1:00 am',
-        title: 'Midnight Snack',
+        title: 'Midnight Cafe Halte',
         location: 'Tepper Simmons Auditorium',
         desc: 'Fuel up with late-night snacks!',
       },
@@ -42,13 +42,13 @@ const SCHEDULE = [
       },
       {
         time: '4:00 pm',
-        title: 'Project Submissions',
+        title: 'Baggage Check',
         location: 'Google Form',
         desc: 'Submit your project description and track selection.',
       },
       {
         time: '4:00 – 6:30 pm',
-        title: 'Judging + Project Expo',
+        title: 'Platform Showcase',
         location: 'Tepper Simmons Auditorium',
         desc: 'Show off your amazing project to everyone!',
       },
@@ -60,7 +60,7 @@ const SCHEDULE = [
       },
       {
         time: '7:00 – 8:00 pm',
-        title: 'Closing Ceremony',
+        title: 'Arrival',
         location: 'Tepper Simmons Auditorium',
         desc: 'We hope you continue to reach for the stars!',
       },
