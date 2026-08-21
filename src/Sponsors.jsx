@@ -20,6 +20,22 @@ import texasInstrumentsLogo from './assets/sponsor_logos/texas_instruments_logo.
 import visaLogo from './assets/sponsor_logos/visa_logo.png'
 import './Sponsors.css'
 
+const BRONZE_SPONSORS = new Set([
+  'Citadel',
+  'DE Shaw',
+  'Jane Street',
+  'Microsoft',
+  'Quadrature',
+  'Sandia',
+])
+
+function tierFor(name) {
+  if (name === 'HRT') return 'gold'
+  if (name === 'Cursor') return 'silver'
+  if (BRONZE_SPONSORS.has(name)) return 'bronze'
+  return 'base'
+}
+
 const SPONSOR_LIST = [
   { name: 'a16z', logo: a16zLogo },
   { name: 'Adobe', logo: adobeLogo },
@@ -39,7 +55,7 @@ const SPONSOR_LIST = [
   { name: 'SCM', logo: scmLogo },
   { name: 'Texas Instruments', logo: texasInstrumentsLogo },
   { name: 'Visa', logo: visaLogo },
-]
+].map((sponsor) => ({ ...sponsor, tier: tierFor(sponsor.name) }))
 
 const TOTAL_SPONSOR_SLOTS = 20
 
@@ -49,12 +65,14 @@ const SPONSORS = Array.from({ length: TOTAL_SPONSOR_SLOTS }, (_, i) => {
     return {
       name: sponsor.name,
       logo: sponsor.logo,
+      tier: sponsor.tier,
       blurb: `${sponsor.name} is a valued sponsor of HackCMU 2026. More details coming soon.`,
     }
   }
   return {
     name: 'Coming Soon',
     logo: dogLogo,
+    tier: 'base',
     blurb: 'This spot is reserved for a future sponsor — stay tuned!',
   }
 })
@@ -99,7 +117,7 @@ function Sponsors() {
             onClick={() => setActiveSponsor(sponsor)}
             aria-label={`View ${sponsor.name} details`}
           >
-            <span className="sponsor-frame-inner">
+            <span className={`sponsor-frame-inner tier-${sponsor.tier}`}>
               <CornerNails />
               <img src={sponsor.logo} alt={`${sponsor.name} logo`} />
             </span>

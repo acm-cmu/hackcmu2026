@@ -7,6 +7,19 @@
   --slate: #acb1c5;
   --charcoal: #06212b;
 
+  --tier-gold: #dfa121;
+  --tier-gold-light: #f8e0a0;
+  --tier-gold-dark: #8a5f16;
+  --tier-silver: #b7c0c9;
+  --tier-silver-light: #f2f5f7;
+  --tier-silver-dark: #6c7580;
+  --tier-bronze: #b0793f;
+  --tier-bronze-light: #e8c9a0;
+  --tier-bronze-dark: #6b4423;
+  --tier-base: #495f8d;
+  --tier-base-light: #b9c6e0;
+  --tier-base-dark: #22304f;
+
   --bg: var(--navy-deep);
   --bg-elevated: rgba(255, 255, 255, 0.06);
   --text: var(--cream);
