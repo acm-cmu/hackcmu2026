@@ -72,7 +72,7 @@ const SPONSORS = Array.from({ length: TOTAL_SPONSOR_SLOTS }, (_, i) => {
   return {
     name: 'Coming Soon',
     logo: dogLogo,
-    tier: 'base',
+    tier: 'grey',
     blurb: 'This spot is reserved for a future sponsor — stay tuned!',
   }
 })

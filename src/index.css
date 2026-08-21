@@ -19,6 +19,9 @@
   --tier-base: #495f8d;
   --tier-base-light: #b9c6e0;
   --tier-base-dark: #22304f;
+  --tier-grey: #9a9a9a;
+  --tier-grey-light: #d9d9d9;
+  --tier-grey-dark: #5a5a5a;
 
   --bg: var(--navy-deep);
   --bg-elevated: rgba(255, 255, 255, 0.06);
