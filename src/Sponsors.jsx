@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import dogLogo from './assets/logo.png'
+import a16zLogo from './assets/sponsor_logos/a16z_logo.png'
 import adobeLogo from './assets/sponsor_logos/adobe_logo.png'
 import citadelLogo from './assets/sponsor_logos/citadel_logo.png'
 import cursorLogo from './assets/sponsor_logos/cursor_logo.png'
@@ -19,6 +20,7 @@ import visaLogo from './assets/sponsor_logos/visa_logo.png'
 import './Sponsors.css'
 
 const SPONSOR_LIST = [
+  { name: 'a16z', logo: a16zLogo },
   { name: 'Adobe', logo: adobeLogo },
   { name: 'Citadel', logo: citadelLogo },
   { name: 'Cursor', logo: cursorLogo },
