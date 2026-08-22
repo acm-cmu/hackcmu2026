@@ -50,7 +50,34 @@ const SPONSOR_LIST = [
   { name: 'Microsoft', logo: microsoftLogo },
   { name: 'Quadrature', logo: quadratureLogo },
   { name: 'Querit', logo: queritLogo },
-  { name: 'Roblox', logo: robloxLogo },
+  {
+    name: 'Roblox',
+    logo: robloxLogo,
+    blurb: (
+      <>
+        <p>Roblox is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          At Roblox, we’re building the tools and platform that empower our community to bring
+          any experience that they can imagine to life. Our vision is to reimagine the way people
+          come together, from anywhere in the world, and on any device. We’re on a mission to
+          connect a billion people with optimism and civility, and looking for amazing talent to
+          help us get there.
+        </p>
+        <p>
+          A career at Roblox means you’ll be working to shape the future of human interaction,
+          solving unique technical challenges at scale, and helping to create safer, more civil
+          shared experiences for everyone.
+        </p>
+        <p>
+          Link:{' '}
+          <a href="https://careers.roblox.com/" target="_blank" rel="noopener noreferrer">
+            https://careers.roblox.com/
+          </a>
+        </p>
+      </>
+    ),
+  },
   { name: 'Sandia', logo: sandiaLogo },
   { name: 'SCM', logo: scmLogo },
   { name: 'Texas Instruments', logo: texasInstrumentsLogo },
@@ -66,7 +93,9 @@ const SPONSORS = Array.from({ length: TOTAL_SPONSOR_SLOTS }, (_, i) => {
       name: sponsor.name,
       logo: sponsor.logo,
       tier: sponsor.tier,
-      blurb: `${sponsor.name} is a valued sponsor of HackCMU 2026. More details coming soon.`,
+      blurb:
+        sponsor.blurb ??
+        `${sponsor.name} is a valued sponsor of HackCMU 2026. More details coming soon.`,
     }
   }
   return {
@@ -156,7 +185,7 @@ function Sponsors() {
               alt={`${activeSponsor.name} logo`}
             />
             <h3 className="sponsor-modal-title">{activeSponsor.name}</h3>
-            <p className="sponsor-modal-blurb">{activeSponsor.blurb}</p>
+            <div className="sponsor-modal-blurb">{activeSponsor.blurb}</div>
           </div>
         </div>
       )}
