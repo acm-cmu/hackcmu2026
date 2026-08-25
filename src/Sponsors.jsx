@@ -9,6 +9,7 @@ import deShawLogo from './assets/sponsor_logos/de_shaw_logo.png'
 import garnerHealthLogo from './assets/sponsor_logos/garner_health_logo.png'
 import hrtLogo from './assets/sponsor_logos/hrt_logo.png'
 import janeStreetLogo from './assets/sponsor_logos/jane_street_logo.png'
+import jumpLogo from './assets/sponsor_logos/jump_logo.png'
 import lockheedMartinLogo from './assets/sponsor_logos/lockheed_martin_logo.png'
 import microsoftLogo from './assets/sponsor_logos/microsoft_logo.png'
 import quadratureLogo from './assets/sponsor_logos/quadrature_logo.png'
@@ -24,6 +25,7 @@ const BRONZE_SPONSORS = new Set([
   'Citadel',
   'DE Shaw',
   'Jane Street',
+  'Jump',
   'Microsoft',
   'Quadrature',
   'Sandia',
@@ -46,6 +48,7 @@ const SPONSOR_LIST = [
   { name: 'Garner Health', logo: garnerHealthLogo },
   { name: 'HRT', logo: hrtLogo },
   { name: 'Jane Street', logo: janeStreetLogo },
+  { name: 'Jump', logo: jumpLogo },
   { name: 'Lockheed Martin', logo: lockheedMartinLogo },
   { name: 'Microsoft', logo: microsoftLogo },
   { name: 'Quadrature', logo: quadratureLogo },
