@@ -66,6 +66,12 @@ const SPONSOR_LIST = [
           questions, make accurate judgments, and take reliable action, with unique Multilingual
           index.
         </p>
+        <p>
+          Link:{' '}
+          <a href="https://www.querit.ai/en" target="_blank" rel="noopener noreferrer">
+            https://www.querit.ai/en
+          </a>
+        </p>
       </>
     ),
   },
