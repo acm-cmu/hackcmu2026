@@ -52,7 +52,23 @@ const SPONSOR_LIST = [
   { name: 'Lockheed Martin', logo: lockheedMartinLogo },
   { name: 'Microsoft', logo: microsoftLogo },
   { name: 'Quadrature', logo: quadratureLogo },
-  { name: 'Querit', logo: queritLogo },
+  {
+    name: 'Querit',
+    logo: queritLogo,
+    blurb: (
+      <>
+        <p>Querit is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          Querit is building a global Web Search API and search infrastructure for LLMs, AI
+          agents, and in-app search. We transform the open web into AI-ready knowledge through
+          up-to-date search, structured extraction, and source grounding to answer the latest
+          questions, make accurate judgments, and take reliable action, with unique Multilingual
+          index.
+        </p>
+      </>
+    ),
+  },
   {
     name: 'Roblox',
     logo: robloxLogo,
