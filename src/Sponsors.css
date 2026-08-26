@@ -108,6 +108,50 @@
     0 12px 22px -10px rgba(0, 0, 0, 0.6);
 }
 
+.sponsor-frame-inner.tier-platinum {
+  --frame-color: var(--tier-platinum);
+  --nail-light: var(--tier-platinum-light);
+  --nail-mid: var(--tier-platinum);
+  --nail-dark: var(--tier-platinum-dark);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 3px rgba(0, 0, 0, 0.06),
+    0 0 20px 2px rgba(255, 255, 255, 0.6),
+    0 12px 22px -10px rgba(0, 0, 0, 0.6);
+}
+
+.sponsor-frame-inner.tier-platinum::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(
+    115deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.9) 50%,
+    transparent 58%
+  );
+  animation: platinum-shine 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes platinum-shine {
+  0% {
+    transform: translateX(-120%);
+  }
+  40%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sponsor-frame-inner.tier-platinum::after {
+    animation: none;
+  }
+}
+
 .sponsor-frame-inner.tier-gold {
   --frame-color: var(--tier-gold);
   --nail-light: var(--tier-gold-light);

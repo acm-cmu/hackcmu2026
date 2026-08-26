@@ -8,6 +8,7 @@ import cursorLogo from './assets/sponsor_logos/cursor_logo.png'
 import deShawLogo from './assets/sponsor_logos/de_shaw_logo.png'
 import garnerHealthLogo from './assets/sponsor_logos/garner_health_logo.png'
 import hrtLogo from './assets/sponsor_logos/hrt_logo.png'
+import ifmLogo from './assets/sponsor_logos/ifm_logo.png'
 import janeStreetLogo from './assets/sponsor_logos/jane_street_logo.png'
 import jumpLogo from './assets/sponsor_logos/jump_logo.png'
 import lockheedMartinLogo from './assets/sponsor_logos/lockheed_martin_logo.png'
@@ -32,6 +33,7 @@ const BRONZE_SPONSORS = new Set([
 ])
 
 function tierFor(name) {
+  if (name === 'IFM') return 'platinum'
   if (name === 'HRT') return 'gold'
   if (name === 'Cursor') return 'silver'
   if (BRONZE_SPONSORS.has(name)) return 'bronze'
@@ -47,6 +49,7 @@ const SPONSOR_LIST = [
   { name: 'DE Shaw', logo: deShawLogo },
   { name: 'Garner Health', logo: garnerHealthLogo },
   { name: 'HRT', logo: hrtLogo },
+  { name: 'IFM', logo: ifmLogo },
   { name: 'Jane Street', logo: janeStreetLogo },
   { name: 'Jump', logo: jumpLogo },
   { name: 'Lockheed Martin', logo: lockheedMartinLogo },
@@ -109,7 +112,7 @@ const SPONSOR_LIST = [
   { name: 'Visa', logo: visaLogo },
 ].map((sponsor) => ({ ...sponsor, tier: tierFor(sponsor.name) }))
 
-const TOTAL_SPONSOR_SLOTS = 20
+const TOTAL_SPONSOR_SLOTS = 21
 
 const SPONSORS = Array.from({ length: TOTAL_SPONSOR_SLOTS }, (_, i) => {
   const sponsor = SPONSOR_LIST[i]
