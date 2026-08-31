@@ -106,7 +106,25 @@ const SPONSOR_LIST = [
       </>
     ),
   },
-  { name: 'Sandia', logo: sandiaLogo },
+  {
+    name: 'Sandia',
+    logo: sandiaLogo,
+    blurb: (
+      <>
+        <p>Sandia is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          For more than 76 years, Sandia National Laboratories has delivered essential science
+          and technology to resolve the nation’s most challenging security issues and is the
+          nation’s premier science and engineering lab for national security and technology.
+          Sandia is made up of world-class scientists, engineers, technologists, post docs,
+          visiting researchers, and student interns all focused on cutting-edge technology,
+          ranging from homeland defense, global security, biotechnology, and environmental
+          preservation to energy and combustion research, computer security, and nuclear defense.
+        </p>
+      </>
+    ),
+  },
   { name: 'SCM', logo: scmLogo },
   { name: 'Texas Instruments', logo: texasInstrumentsLogo },
   { name: 'Visa', logo: visaLogo },
