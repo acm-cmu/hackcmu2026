@@ -47,7 +47,25 @@ const SPONSOR_LIST = [
   { name: 'Citadel', logo: citadelLogo },
   { name: 'Cursor', logo: cursorLogo },
   { name: 'DE Shaw', logo: deShawLogo },
-  { name: 'Garner Health', logo: garnerHealthLogo },
+  {
+    name: 'Garner Health',
+    logo: garnerHealthLogo,
+    blurb: (
+      <>
+        <p>Garner Health is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          Garner’s mission is to transform the healthcare economy, delivering high-quality and
+          affordable care for all. Using a new approach to data science and novel financial
+          incentives, we help patients identify the highest-quality care and help doctors improve
+          how they practice medicine. We seek to change the economics of health care so that
+          providers thrive by practicing the best medicine, not by performing more invasive
+          procedures. If you are excited about delivering high-quality and affordable health care
+          for all, join us.
+        </p>
+      </>
+    ),
+  },
   { name: 'HRT', logo: hrtLogo },
   { name: 'IFM', logo: ifmLogo },
   { name: 'Jane Street', logo: janeStreetLogo },
