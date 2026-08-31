@@ -52,7 +52,22 @@ const SPONSOR_LIST = [
   { name: 'IFM', logo: ifmLogo },
   { name: 'Jane Street', logo: janeStreetLogo },
   { name: 'Jump', logo: jumpLogo },
-  { name: 'Lockheed Martin', logo: lockheedMartinLogo },
+  {
+    name: 'Lockheed Martin',
+    logo: lockheedMartinLogo,
+    blurb: (
+      <>
+        <p>Lockheed Martin is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          Lockheed Martin is a global defense technology company driving innovation and advancing
+          scientific discovery. Our all-domain mission solutions and 21st Century Security® vision
+          deliver transformative technologies that deter potential adversaries and ensure America
+          and its allies can achieve peace through strength.
+        </p>
+      </>
+    ),
+  },
   { name: 'Microsoft', logo: microsoftLogo },
   { name: 'Quadrature', logo: quadratureLogo },
   {
