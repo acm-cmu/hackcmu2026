@@ -160,7 +160,37 @@ const SPONSOR_LIST = [
   },
   { name: 'SCM', logo: scmLogo },
   { name: 'Texas Instruments', logo: texasInstrumentsLogo },
-  { name: 'Visa', logo: visaLogo },
+  {
+    name: 'Visa',
+    logo: visaLogo,
+    blurb: (
+      <>
+        <p>Visa is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          Visa is a world leader in payments technology, facilitating transactions between
+          consumers, merchants, financial institutions and government entities across more than
+          200 countries and territories, dedicated to uplifting everyone, everywhere by being the
+          best way to pay and be paid.
+        </p>
+        <p>
+          At Visa, you'll have the opportunity to create impact at scale — tackling meaningful
+          challenges, growing your skills and seeing your contributions impact lives around the
+          world.
+        </p>
+        <p>
+          Join Visa and do work that matters – to you, to your community, and to the world.
+          Progress starts with you.
+        </p>
+        <p>
+          Learn more at{' '}
+          <a href="https://www.visa.com/students" target="_blank" rel="noopener noreferrer">
+            Visa.com/students
+          </a>
+        </p>
+      </>
+    ),
+  },
 ].map((sponsor) => ({ ...sponsor, tier: tierFor(sponsor.name) }))
 
 const TOTAL_SPONSOR_SLOTS = 21
