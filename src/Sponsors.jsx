@@ -43,7 +43,22 @@ function tierFor(name) {
 const SPONSOR_LIST = [
   { name: 'a16z', logo: a16zLogo },
   { name: 'Adobe', logo: adobeLogo },
-  { name: 'Bloomberg', logo: bloombergLogo },
+  {
+    name: 'Bloomberg',
+    logo: bloombergLogo,
+    blurb: (
+      <>
+        <p>Bloomberg is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          Bloomberg is a global information and technology company. We use our dynamic network of
+          data, ideas and analysis to solve difficult problems. Our customers around the world
+          rely on us to deliver accurate, real-time business and market information that helps
+          them make important financial decisions.
+        </p>
+      </>
+    ),
+  },
   {
     name: 'Citadel',
     logo: citadelLogo,
