@@ -44,7 +44,22 @@ const SPONSOR_LIST = [
   { name: 'a16z', logo: a16zLogo },
   { name: 'Adobe', logo: adobeLogo },
   { name: 'Bloomberg', logo: bloombergLogo },
-  { name: 'Citadel', logo: citadelLogo },
+  {
+    name: 'Citadel',
+    logo: citadelLogo,
+    blurb: (
+      <>
+        <p>Citadel | Citadel Securities is a valued sponsor of HackCMU 2026.</p>
+        <p>This is a message from them:</p>
+        <p>
+          Citadel is one of the world's leading alternative investment firms, pursuing superior
+          long-term returns for the world's preeminent public and private institutions. Citadel
+          Securities is the next-generation capital markets firm, delivering critical liquidity
+          and helping to shape the markets of tomorrow.
+        </p>
+      </>
+    ),
+  },
   { name: 'Cursor', logo: cursorLogo },
   { name: 'DE Shaw', logo: deShawLogo },
   {
