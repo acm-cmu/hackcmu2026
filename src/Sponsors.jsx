@@ -49,7 +49,7 @@ const SPONSOR_LIST = [
     logo: citadelLogo,
     blurb: (
       <>
-        <p>Citadel | Citadel Securities is a valued sponsor of HackCMU 2026.</p>
+        <p>Citadel | Citadel Securities is a valued sponsor of ACM@CMU.</p>
         <p>This is a message from them:</p>
         <p>
           Citadel is one of the world's leading alternative investment firms, pursuing superior
