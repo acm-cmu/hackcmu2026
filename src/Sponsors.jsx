@@ -173,7 +173,36 @@ const SPONSOR_LIST = [
       </>
     ),
   },
-  { name: 'SCM', logo: scmLogo },
+  {
+    name: 'SCM',
+    logo: scmLogo,
+    blurb: (
+      <>
+        <p>SCM is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          Stevens Capital Management LP (“SCM”) is a quantitative hedge fund manager specializing
+          in the rigorous development and disciplined implementation of empirically based trading
+          strategies. We employ a variety of statistical methods and techniques using our robust
+          technology and data infrastructure. We operate a 24 hour low-latency global operation
+          trading liquid futures contracts, currencies and equities, using automated proprietary
+          execution algorithms. Our flagship fund has been in business for more than 30 years.
+        </p>
+        <p>
+          SCM is in constant pursuit of exceptionally talented and motivated individuals with a
+          history of outstanding achievement, who are interested in developing and implementing
+          automated trading strategies. SCM actively seeks candidates for career opportunities in
+          quantitative financial research and C++ development.
+        </p>
+        <p>
+          Developer Internship Opportunity:{' '}
+          <a href="https://grnh.se/eyywl26a1us" target="_blank" rel="noopener noreferrer">
+            https://grnh.se/eyywl26a1us
+          </a>
+        </p>
+      </>
+    ),
+  },
   { name: 'Texas Instruments', logo: texasInstrumentsLogo },
   {
     name: 'Visa',
