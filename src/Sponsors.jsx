@@ -75,7 +75,39 @@ const SPONSOR_LIST = [
     ),
   },
   { name: 'Cursor', logo: cursorLogo },
-  { name: 'DE Shaw', logo: deShawLogo },
+  {
+    name: 'DE Shaw',
+    logo: deShawLogo,
+    blurb: (
+      <>
+        <p>DE Shaw is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          We're a global investment and technology development firm headquartered in New York
+          City with more than 3,000 people around the globe. Since our founding in 1988, we've
+          earned a worldwide reputation for innovation, rigorous risk management, cutting-edge
+          technology, and the quality of our people. To learn more about our culture, impact,
+          research, and programs, visit our website and our YouTube channel.
+        </p>
+        <p>
+          Website:{' '}
+          <a href="https://www.deshaw.com/" target="_blank" rel="noopener noreferrer">
+            https://www.deshaw.com/
+          </a>
+        </p>
+        <p>
+          Youtube Channel:{' '}
+          <a
+            href="https://www.youtube.com/@deshawgroup"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://www.youtube.com/@deshawgroup
+          </a>
+        </p>
+      </>
+    ),
+  },
   {
     name: 'Garner Health',
     logo: garnerHealthLogo,
