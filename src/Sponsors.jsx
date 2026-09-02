@@ -3,7 +3,6 @@ import a16zLogo from './assets/sponsor_logos/a16z_logo.png'
 import adobeLogo from './assets/sponsor_logos/adobe_logo.png'
 import bloombergLogo from './assets/sponsor_logos/bloomberg_logo.png'
 import citadelLogo from './assets/sponsor_logos/citadel_logo.png'
-import cursorLogo from './assets/sponsor_logos/cursor_logo.png'
 import deShawLogo from './assets/sponsor_logos/de_shaw_logo.png'
 import garnerHealthLogo from './assets/sponsor_logos/garner_health_logo.png'
 import hrtLogo from './assets/sponsor_logos/hrt_logo.png'
@@ -17,6 +16,7 @@ import queritLogo from './assets/sponsor_logos/querit_logo.png'
 import robloxLogo from './assets/sponsor_logos/roblox_logo.png'
 import sandiaLogo from './assets/sponsor_logos/sandia_logo.png'
 import scmLogo from './assets/sponsor_logos/scm_logo.png'
+import spacexaiLogo from './assets/sponsor_logos/spacexai_logo.png'
 import texasInstrumentsLogo from './assets/sponsor_logos/texas_instruments_logo.png'
 import visaLogo from './assets/sponsor_logos/visa_logo.png'
 import './Sponsors.css'
@@ -34,7 +34,7 @@ const BRONZE_SPONSORS = new Set([
 function tierFor(name) {
   if (name === 'IFM') return 'platinum'
   if (name === 'HRT') return 'gold'
-  if (name === 'Cursor') return 'silver'
+  if (name === 'SpaceXAI') return 'silver'
   if (BRONZE_SPONSORS.has(name)) return 'bronze'
   return 'base'
 }
@@ -74,7 +74,6 @@ const SPONSOR_LIST = [
       </>
     ),
   },
-  { name: 'Cursor', logo: cursorLogo },
   {
     name: 'DE Shaw',
     logo: deShawLogo,
@@ -265,6 +264,25 @@ const SPONSOR_LIST = [
           <a href="https://grnh.se/eyywl26a1us" target="_blank" rel="noopener noreferrer">
             https://grnh.se/eyywl26a1us
           </a>
+        </p>
+      </>
+    ),
+  },
+  {
+    name: 'SpaceXAI',
+    logo: spacexaiLogo,
+    blurb: (
+      <>
+        <p>SpaceXAI is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          SpaceXAI is the company behind Grok and now, SpaceXAI. We build frontier AI models to
+          understand the universe.
+        </p>
+        <p>
+          One model family. One API. Frontier intelligence for useful work: chat, hard
+          engineering, real-time voice, and image and video. Always-on agents included. Built to
+          extend what humanity can know and do.
         </p>
       </>
     ),
