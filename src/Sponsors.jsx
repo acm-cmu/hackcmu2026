@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import dogLogo from './assets/logo.png'
 import a16zLogo from './assets/sponsor_logos/a16z_logo.png'
 import adobeLogo from './assets/sponsor_logos/adobe_logo.png'
 import bloombergLogo from './assets/sponsor_logos/bloomberg_logo.png'
@@ -252,27 +251,13 @@ const SPONSOR_LIST = [
   },
 ].map((sponsor) => ({ ...sponsor, tier: tierFor(sponsor.name) }))
 
-const TOTAL_SPONSOR_SLOTS = 21
-
-const SPONSORS = Array.from({ length: TOTAL_SPONSOR_SLOTS }, (_, i) => {
-  const sponsor = SPONSOR_LIST[i]
-  if (sponsor) {
-    return {
-      name: sponsor.name,
-      logo: sponsor.logo,
-      tier: sponsor.tier,
-      blurb:
-        sponsor.blurb ??
-        `${sponsor.name} is a valued sponsor of HackCMU 2026. More details coming soon.`,
-    }
-  }
-  return {
-    name: 'Coming Soon',
-    logo: dogLogo,
-    tier: 'grey',
-    blurb: 'This spot is reserved for a future sponsor — stay tuned!',
-  }
-})
+const SPONSORS = SPONSOR_LIST.map((sponsor) => ({
+  name: sponsor.name,
+  logo: sponsor.logo,
+  tier: sponsor.tier,
+  blurb:
+    sponsor.blurb ?? `${sponsor.name} is a valued sponsor of HackCMU 2026. More details coming soon.`,
+}))
 
 function CornerNails() {
   return (

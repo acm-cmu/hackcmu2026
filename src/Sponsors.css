@@ -180,13 +180,6 @@
   --nail-dark: var(--tier-base-dark);
 }
 
-.sponsor-frame-inner.tier-grey {
-  --frame-color: var(--tier-grey);
-  --nail-light: var(--tier-grey-light);
-  --nail-mid: var(--tier-grey);
-  --nail-dark: var(--tier-grey-dark);
-}
-
 .sponsor-frame-inner img {
   width: 100%;
   height: 100%;
