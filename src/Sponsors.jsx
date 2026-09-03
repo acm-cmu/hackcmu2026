@@ -128,7 +128,21 @@ const SPONSOR_LIST = [
   },
   { name: 'HRT', logo: hrtLogo },
   { name: 'IFM', logo: ifmLogo },
-  { name: 'Jane Street', logo: janeStreetLogo },
+  {
+    name: 'Jane Street',
+    logo: janeStreetLogo,
+    blurb: (
+      <>
+        <p>Jane Street is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          Jane Street is a quantitative trading firm with offices worldwide. We hire smart, humble
+          people who love to solve problems, build systems, and test theories. Will our next
+          great idea come from you?
+        </p>
+      </>
+    ),
+  },
   { name: 'Jump', logo: jumpLogo },
   {
     name: 'Lockheed Martin',
