@@ -287,7 +287,25 @@ const SPONSOR_LIST = [
       </>
     ),
   },
-  { name: 'Texas Instruments', logo: texasInstrumentsLogo },
+  {
+    name: 'Texas Instruments',
+    logo: texasInstrumentsLogo,
+    blurb: (
+      <>
+        <p>Texas Instruments is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          Texas Instruments is a leading semiconductor company founded in 1930 and headquartered
+          in Dallas, Texas. TI designs and manufactures analog and embedded processing chips that
+          power everything from automotive systems to industrial equipment, serving customers
+          worldwide with nearly a century of innovation and expertise. Our semiconductors power
+          the world’s essential technologies – from phones and data centers to medical equipment
+          and cars. With 80,000+ products, we offer the industry's most comprehensive analog and
+          embedded portfolio.
+        </p>
+      </>
+    ),
+  },
   {
     name: 'Visa',
     logo: visaLogo,
