@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
-import foreground from './assets/foreground.png'
-import hackcmuLabel from './assets/hackcmu-label-trim.png'
-import board from './assets/board-trim.png'
-import ticketBooth from './assets/ticket-booth-trim.png'
+import foreground from './assets/foreground.webp'
+import hackcmuLabel from './assets/hackcmu-label-trim.webp'
+import ticketBooth from './assets/ticket-booth-trim.webp'
 import emblem from './assets/emblem.svg'
 import Schedule from './Schedule.jsx'
 import Tracks from './Tracks.jsx'
@@ -232,13 +231,21 @@ function App() {
             alt="HackCMU 2026: Midnight Express ticket badge"
           />
           <img className="hero-emblem" src={emblem} alt="" />
-          <div className="board-wrap">
-            <img className="board-img" src={board} alt="" />
-            <textarea
-              className="board-fill"
-              placeholder="What will you build at HackCMU?"
-              aria-label="What will you build at HackCMU?"
+          <div className="ticket-col">
+            <img
+              className="ticket-booth-img"
+              src={ticketBooth}
+              alt="A ticket booth where a dog station master hands out a ticket"
             />
+            <a
+              className="apply-btn"
+              href={APPLY_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Sign up here for HackCMU"
+            >
+              SIGN UP HERE
+            </a>
           </div>
         </div>
       </section>
@@ -258,18 +265,6 @@ function App() {
 
       <section className="board-tickets" id="tickets">
         <Schedule />
-
-        <div className="ticket-col">
-          <img
-            className="ticket-booth-img"
-            src={ticketBooth}
-            alt="A ticket booth where a dog station master hands out a ticket"
-          />
-          <a className="apply-btn" href={APPLY_FORM_URL} target="_blank" rel="noopener noreferrer">
-            Get Ticket
-          </a>
-          <span className="apply-btn-hint">click me!</span>
-        </div>
       </section>
 
       <CloudTrail width={viewportWidth} />
