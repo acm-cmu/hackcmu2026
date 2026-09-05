@@ -250,7 +250,7 @@
 
 .hero-art .hackcmu-label {
   position: absolute;
-  left: 68%;
+  left: 50%;
   top: 18%;
   width: 58%;
   min-width: 200px;
@@ -280,18 +280,14 @@
   }
 }
 
-.hero .ticket-col {
+.hero-signup {
   position: absolute;
-  top: 10%;
-  left: 3%;
+  top: calc(100svh - clamp(156px, 13vw, 210px));
+  bottom: auto;
+  left: 50%;
   z-index: 2;
-  width: 35%;
-  gap: 18px;
-}
-
-.hero .ticket-booth-img {
-  width: clamp(220px, 28vw, 760px);
-  max-width: 100%;
+  width: min(34%, 760px);
+  transform: translateX(-50%);
 }
 
 .board-tickets {
@@ -316,6 +312,21 @@
   flex-direction: column;
   align-items: center;
   gap: 28px;
+}
+
+.schedule-ticket-col {
+  display: none;
+}
+
+@media (min-width: 901px) {
+  .board-tickets {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    justify-content: normal;
+  }
+
+  .schedule-ticket-col {
+    display: flex;
+  }
 }
 
 .board-wrap {
@@ -385,7 +396,7 @@
   transform: translateY(-2px) scale(1.03);
 }
 
-.hero .apply-btn {
+.ticket-signup-btn {
   width: min(82%, 720px);
   min-height: clamp(84px, 7vw, 116px);
   padding: 14px 22px;
@@ -408,7 +419,7 @@
   transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
 }
 
-.hero .apply-btn:hover {
+.ticket-signup-btn:hover {
   transform: translateY(-3px);
   box-shadow:
     0 12px 0 #263b69,
@@ -417,7 +428,7 @@
   filter: brightness(1.07);
 }
 
-.hero .apply-btn:active {
+.ticket-signup-btn:active {
   transform: translateY(6px);
   box-shadow:
     0 3px 0 #263b69,
@@ -430,7 +441,7 @@
     width: min(94vw, 560px);
   }
 
-  .hero .hero-art .ticket-col {
+  .hero .hero-signup {
     position: absolute;
     top: auto;
     bottom: 5%;
@@ -441,14 +452,18 @@
     transform: translateX(-50%);
   }
 
-  .hero .ticket-booth-img {
-    display: none;
-  }
-
-  .hero .apply-btn {
+  .hero .ticket-signup-btn {
     width: 100%;
     min-height: 76px;
     font-size: clamp(18px, 6.5vw, 28px);
+  }
+}
+
+@media (min-width: 769px) {
+  .hero-signup .ticket-signup-btn {
+    width: 100%;
+    min-height: clamp(96px, 8vw, 132px);
+    font-size: clamp(26px, 2.7vw, 50px);
   }
 }
 

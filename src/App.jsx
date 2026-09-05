@@ -231,14 +231,9 @@ function App() {
             alt="HackCMU 2026: Midnight Express ticket badge"
           />
           <img className="hero-emblem" src={emblem} alt="" />
-          <div className="ticket-col">
-            <img
-              className="ticket-booth-img"
-              src={ticketBooth}
-              alt="A ticket booth where a dog station master hands out a ticket"
-            />
+          <div className="hero-signup">
             <a
-              className="apply-btn"
+              className="apply-btn ticket-signup-btn"
               href={APPLY_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
@@ -265,6 +260,23 @@ function App() {
 
       <section className="board-tickets" id="tickets">
         <Schedule />
+        <div className="ticket-col schedule-ticket-col">
+          <img
+            className="ticket-booth-img"
+            src={ticketBooth}
+            alt="A ticket booth where a dog station master hands out a ticket"
+            loading="lazy"
+          />
+          <a
+            className="apply-btn ticket-signup-btn"
+            href={APPLY_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Sign up here for HackCMU"
+          >
+            SIGN UP HERE
+          </a>
+        </div>
       </section>
 
       <CloudTrail width={viewportWidth} />
