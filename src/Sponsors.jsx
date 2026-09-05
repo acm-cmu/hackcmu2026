@@ -403,7 +403,7 @@ function Sponsors() {
           >
             <span className={`sponsor-frame-inner tier-${sponsor.tier}`}>
               <CornerNails />
-              <img src={sponsor.logo} alt={`${sponsor.name} logo`} />
+              <img src={sponsor.logo} alt={`${sponsor.name} logo`} loading="lazy" />
             </span>
             <span className="sponsor-frame-name">{sponsor.name}</span>
             <span className="sponsor-click-hint">click me!</span>
@@ -438,6 +438,7 @@ function Sponsors() {
               className="sponsor-modal-logo"
               src={activeSponsor.logo}
               alt={`${activeSponsor.name} logo`}
+              loading="lazy"
             />
             <h3 className="sponsor-modal-title">{activeSponsor.name}</h3>
             <div className="sponsor-modal-blurb">{activeSponsor.blurb}</div>

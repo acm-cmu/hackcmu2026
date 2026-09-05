@@ -186,8 +186,9 @@
 
   @media (max-width: 768px) {
     align-items: center;
-    justify-content: center;
-    padding: 24px 0;
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 12px 0 24px;
   }
 }
 
@@ -250,8 +251,8 @@
 .hero-art .hackcmu-label {
   position: absolute;
   left: 50%;
-  top: 13%;
-  width: 40%;
+  top: 18%;
+  width: 58%;
   min-width: 200px;
   transform: translate(-50%, -50%) rotate(-4deg);
   filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.4));
@@ -259,12 +260,14 @@
 
   @media (max-width: 768px) {
     min-width: 0;
+    left: 50%;
+    width: 48%;
   }
 }
 
 .hero-art .hero-emblem {
   position: absolute;
-  top: 12%;
+  top: 30%;
   right: -5%;
   width: 24%;
   min-width: 140px;
@@ -273,14 +276,26 @@
 
   @media (max-width: 768px) {
     min-width: 0;
+    top: 12%;
   }
+}
+
+.hero-signup {
+  position: absolute;
+  top: calc(100svh - clamp(156px, 13vw, 210px));
+  bottom: auto;
+  left: 50%;
+  z-index: 2;
+  width: min(34%, 760px);
+  transform: translateX(-50%);
 }
 
 .board-tickets {
   background: var(--ticket-bg);
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 900px);
   align-items: center;
+  justify-content: center;
   gap: 32px;
   padding: 96px clamp(24px, 4vw, 56px) 96px clamp(340px, 26vw, 420px);
   transition: background 0.3s;
@@ -297,6 +312,21 @@
   flex-direction: column;
   align-items: center;
   gap: 28px;
+}
+
+.schedule-ticket-col {
+  display: none;
+}
+
+@media (min-width: 901px) {
+  .board-tickets {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    justify-content: normal;
+  }
+
+  .schedule-ticket-col {
+    display: flex;
+  }
 }
 
 .board-wrap {
@@ -348,13 +378,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 22px 64px;
+  padding: 22px 38px;
   border-radius: 14px;
   background: var(--navy-line);
   color: #fff;
   font-family: var(--dokdo);
   font-weight: 400;
-  font-size: 28px;
+  font-size: clamp(24px, 2.2vw, 34px);
+  letter-spacing: 1px;
+  font-weight: 600;
   text-decoration: none;
   box-shadow: none;
   transition: transform 0.2s;
@@ -364,20 +396,75 @@
   transform: translateY(-2px) scale(1.03);
 }
 
-.apply-btn:hover ~ .apply-btn-hint {
-  opacity: 1;
-  transform: translateY(-2px);
+.ticket-signup-btn {
+  width: min(82%, 720px);
+  min-height: clamp(84px, 7vw, 116px);
+  padding: 14px 22px;
+  border: 4px solid var(--gold);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #6078ad 0%, var(--navy-line) 100%);
+  box-shadow:
+    0 9px 0 #263b69,
+    0 14px 20px rgba(6, 33, 43, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: #fff9ee;
+  font-family: var(--cinzel);
+  font-size: clamp(22px, 2.45vw, 46px);
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 2px 0 rgba(20, 35, 68, 0.45);
+  white-space: nowrap;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
 }
 
-.apply-btn-hint {
-  margin-top: -24px;
-  opacity: 0;
-  transition: opacity 0.2s, transform 0.2s;
-  font-family: var(--sans);
-  font-size: 12px;
-  font-style: italic;
-  font-weight: 600;
-  color: rgba(6, 33, 43, 0.55);
+.ticket-signup-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 0 #263b69,
+    0 18px 24px rgba(6, 33, 43, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  filter: brightness(1.07);
+}
+
+.ticket-signup-btn:active {
+  transform: translateY(6px);
+  box-shadow:
+    0 3px 0 #263b69,
+    0 7px 12px rgba(6, 33, 43, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 768px) {
+  .hero-art {
+    width: min(94vw, 560px);
+  }
+
+  .hero .hero-signup {
+    position: absolute;
+    top: auto;
+    bottom: 5%;
+    left: 50%;
+    z-index: 3;
+    width: min(82%, 380px);
+    margin: 0;
+    transform: translateX(-50%);
+  }
+
+  .hero .ticket-signup-btn {
+    width: 100%;
+    min-height: 76px;
+    font-size: clamp(18px, 6.5vw, 28px);
+  }
+}
+
+@media (min-width: 769px) {
+  .hero-signup .ticket-signup-btn {
+    width: 100%;
+    min-height: clamp(96px, 8vw, 132px);
+    font-size: clamp(26px, 2.7vw, 50px);
+  }
 }
 
 .tracks {
