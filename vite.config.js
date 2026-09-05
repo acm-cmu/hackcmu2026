@@ -5,9 +5,4 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/hackcmu2026/',
   plugins: [react()],
-  server: {
-    allowedHosts: [
-      "sedation-persecute-amiss.ngrok-free.dev"
-    ]
-  }
 })
