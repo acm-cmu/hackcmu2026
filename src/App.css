@@ -102,6 +102,21 @@
   opacity: 1;
 }
 
+.mlh-badge-item {
+  padding-bottom: 8px;
+}
+
+.side-nav .mlh-badge-item a {
+  display: inline-block;
+  opacity: 1;
+}
+
+.mlh-badge-item img {
+  display: block;
+  width: 46px;
+  height: auto;
+}
+
 .mobile-nav {
   display: none;
   position: fixed;

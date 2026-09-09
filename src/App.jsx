@@ -129,6 +129,19 @@ function SideNav({ activeSection }) {
         <div className="side-nav-progress" style={{ height: `${fillPercent}%` }} />
       </div>
       <ul>
+        <li className="mlh-badge-item">
+          <a
+            id="mlh-trust-badge"
+            href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=blue"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://logged-assets.s3.amazonaws.com/trust-badge/2027/mlh-trust-badge-2027-blue.svg"
+              alt="Major League Hacking 2026 Hackathon Season"
+            />
+          </a>
+        </li>
         {SECTIONS.map(({ id, label }) => (
           <li key={id} className={activeSection === id ? 'active' : ''}>
             <a href={`#${id}`}>{label}</a>
