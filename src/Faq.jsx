@@ -91,6 +91,22 @@ const FAQS = [
     ),
   },
   {
+    question: 'What is the MLH Code of Conduct?',
+    answer: (
+      <>
+        HackCMU is a MLH Member Event and adheres to the{' '}
+        <a
+          href="https://transactional.mlh.io/ls/click?upn=u001.ylVwTgUGgwKU7pzcrRvDJ8PHbadmgV5k5JoIkdGqo6gYWO-2FAkMiUgVbQIw7qjmJ0SEIHBSAJSxstJ1QaNLt03938IOMU-2F-2FI2DhqvACqTCjZCbld1yTzeGhhC1c2-2F-2FXZpQIaDG-2BRT-2F4hesvmMI6z8qofWkQPHhgYB4yALDeK0eqQhn4fN82UuHPJgssB2L-2BwC5wNqqQGHPJ6LxQ6V7SPRSNsaiiXpjZwfDsNw9JxPlT82UX4DyhFgGaXYLE7Mz-2BsYUp-2BQLjJdn8OaqZaeUNqNrkbXNyQew6GOdFKYcZEFvcYHNWbDmlesBm5Hyf1crtPt7x-2F2YjsI1bZxjn4K6sQ93BiVU4CrsZJqaK-2BTHnXmuKXHW1L2YpIjfyd0JKUPI3LrD7p7iOoPRVHWvvHYEFQf1TvtXyCwHn5A4q6r-2BfBKDar4c7r306fhIvbgkjcFer9uw2vFZ3J9pIgHBC6wOsuFIBtqAg-2BrTuQRymJWUhI6SBVeHd-2FhgybcVj4qV30xdXfd3y-2BM03Jad2I2Pwp8584xLrjiTDUE09lLHN-2FkspfyHT7scg5USzToaeJLfSYtnTMnFR8uV4abocfdm3mqxwu4ymcxHjLttFXOU90MdRpnRw08-2FCKPnHVvIZC8EiIY9yFplKfPnEBn8lQlYgJBJDIto32vq1B-2FtauyA50ls5Tl3tIPyuX-2BldO8jvQ4gJ93dl6cDGZ0-2BaMkNqFB3M3FCcdIZg-3D-3DBAll_et-2BSWg2qxMdkIzCe-2FIQP5lu3AVtydvrfl4A8XI4ppvOoabyCFM52NzlvQTFl7AQ4ZaQ1583Zc5hE7gbEcw36zbjMy6Es0r8LuJ5Uak2OdzSuOUR2km2k7-2B1cmVf4cSjob4EskAvkbqUmelOk6Uw-2Bc00wCJXmOC9chBDrlLHCAhIVj-2BcLVvB-2FTr3blrMKu2g-2BcfGVXKfV5EsGJ4j8jWmBNMNJ41yW7U04U77KRfOrI6U1rSJ43XbSm29inVHbKWTt2X3NyqEwvsnCFufRgsl8l4I2dTF4fpSl5jcXi-2FS-2FsFg-3D"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          MLH Code of Conduct
+        </a>
+        .
+      </>
+    ),
+  },
+  {
     question: 'Any other questions, comments, or concerns?',
     answer:
       "Email us at acm-exec@cs.cmu.edu. We'd also love for you to follow us on social media @acmatcmu, LinkedIn group, keep up with our website, and join our Discord server :)",
