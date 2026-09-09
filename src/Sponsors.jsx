@@ -143,7 +143,29 @@ const SPONSOR_LIST = [
       </>
     ),
   },
-  { name: 'Jump', logo: jumpLogo },
+  {
+    name: 'Jump',
+    logo: jumpLogo,
+    blurb: (
+      <>
+        <p>Jump is a valued sponsor of ACM@CMU.</p>
+        <p>This is a message from them:</p>
+        <p>
+          Jump Trading is a leading global quantitative trading firm that combines sophisticated
+          quantitative research, cutting-edge technology, and an entrepreneurial culture. Founded
+          in 1999, Jump has over 2,000 employees across offices in Chicago, New York, London,
+          Amsterdam, Singapore, Shanghai, Hong Kong, and more. Jump is still privately owned and
+          funded, fostering a culture of intellectual curiosity and learning. Our people are some
+          of the world's most brilliant minds with backgrounds from the trading industry, Silicon
+          Valley tech companies and start-ups, top PhD programs and research labs. We have a 25+
+          year history of investing in superior infrastructure, including custom hardware,
+          software, wireless networks, and a world-class supercomputer. We leverage our
+          proprietary technology to analyze massive data sets and identify trends in global
+          markets across asset classes.
+        </p>
+      </>
+    ),
+  },
   {
     name: 'Lockheed Martin',
     logo: lockheedMartinLogo,
