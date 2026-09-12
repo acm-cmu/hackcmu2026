@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react'
 import './Tracks.css'
 
 const TRACKS = [
-  { name: 'Optimization', color: '#d9534f', description: 'Details for this track are coming soon.' },
-  { name: 'Traveling', color: '#e8b93a', description: 'Details for this track are coming soon.' },
-  { name: 'Multiplayer', color: '#4f9d6e', description: 'Details for this track are coming soon.' },
-  { name: 'Food', color: '#4f7fbf', description: 'Details for this track are coming soon.' },
-  { name: 'IFM', color: '#9268c9', description: 'Details for this track are coming soon.' },
+  { name: 'Optimization', color: '#d9534f', description: 'Perhaps optimize something? 0.0' },
+  { name: 'Traveling', color: '#e8b93a', description: 'What does traveling mean to you? Hm...' },
+  {
+    name: 'Multiplayer',
+    color: '#4f9d6e',
+    description: 'This is how you can meet people and touch grass :P',
+  },
+  { name: 'Food', color: '#4f7fbf', description: 'Yummy! :D' },
+  { name: 'IFM', color: '#9268c9', description: 'Incorporate their model into your project.' },
 ]
 
 function TrainIcon() {
