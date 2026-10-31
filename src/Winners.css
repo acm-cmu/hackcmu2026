@@ -1,0 +1,118 @@
+.winners-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.winners-subtitle {
+  max-width: 640px;
+  color: var(--text);
+  opacity: 0.75;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.winners-heading {
+  margin-top: 24px;
+  font-family: var(--dokdo);
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: var(--gold);
+}
+
+.winners-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.winner-ticket {
+  display: flex;
+  border-radius: 14px;
+  border: 2px solid var(--ticket-color);
+  background: var(--bg-elevated);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+.winner-ticket:hover {
+  transform: translateY(-4px);
+}
+
+.winner-ticket-stub {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  background: var(--ticket-color);
+  border-right: 2px dashed rgba(255, 255, 255, 0.55);
+}
+
+.winner-ticket-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding: 10px 0;
+  font-family: var(--cinzel);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.winner-ticket-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  min-width: 0;
+}
+
+.winner-places {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.winner-places li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.winner-place {
+  flex: 0 0 40px;
+  font-family: var(--dokdo);
+  font-size: 24px;
+  color: var(--ticket-color);
+}
+
+.winner-name {
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--text-h);
+  overflow-wrap: anywhere;
+}
+
+.winner-name.solo {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .winners-grid {
+    grid-template-columns: 1fr;
+  }
+}

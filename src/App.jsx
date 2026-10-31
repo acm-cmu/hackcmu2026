@@ -5,6 +5,7 @@ import ticketBooth from './assets/ticket-booth-trim.webp'
 import emblem from './assets/emblem.svg'
 import Schedule from './Schedule.jsx'
 import Tracks from './Tracks.jsx'
+import Winners from './Winners.jsx'
 import Faq from './Faq.jsx'
 import Sponsors from './Sponsors.jsx'
 import LeafTrail from './LeafTrail.jsx'
@@ -24,6 +25,7 @@ const SECTIONS = [
   { id: 'home', label: 'Station' },
   { id: 'tickets', label: 'Tickets' },
   { id: 'tracks', label: 'Tracks' },
+  { id: 'winners', label: 'Winners' },
   { id: 'faq', label: 'FAQ' },
   { id: 'sponsors', label: 'Sponsors' },
 ]
@@ -301,6 +303,12 @@ function App() {
           Teams will choose a track when submitting your project on Saturday.
         </p>
         <Tracks />
+      </section>
+
+      <CloudTrail width={viewportWidth} />
+
+      <section className="winners" id="winners">
+        <Winners />
       </section>
 
       <CloudTrail width={viewportWidth} />
