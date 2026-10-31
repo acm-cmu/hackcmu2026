@@ -82,6 +82,9 @@
   border-radius: 16px;
   padding: 12px clamp(14px, 3vw, 24px) 12px;
   width: min(320px, 100%);
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   text-align: center;
   box-shadow:
@@ -116,6 +119,11 @@
   flex: 1;
   height: 0;
   border-top: 2px dashed rgba(73, 95, 141, 0.4);
+}
+
+.winner-info,
+.winner-card > .winner-name {
+  margin: auto 0;
 }
 
 .winner-name {
