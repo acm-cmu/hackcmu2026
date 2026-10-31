@@ -69,6 +69,13 @@
   gap: 18px;
 }
 
+.winners-grid.two-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 320px));
+  justify-content: center;
+  gap: 18px 22px;
+}
+
 .winner-card {
   background: #fff9ee;
   border: 2px solid var(--gold);
@@ -142,4 +149,10 @@
   line-height: 1.3;
   color: var(--charcoal);
   opacity: 0.72;
+}
+
+@media (max-width: 720px) {
+  .winners-grid.two-cols {
+    grid-template-columns: minmax(0, 320px);
+  }
 }

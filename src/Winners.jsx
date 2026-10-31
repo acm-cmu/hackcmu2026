@@ -30,6 +30,7 @@ const SECTIONS = [
   },
   {
     title: 'Tracks',
+    twoCols: true,
     cards: [
       { label: 'Optimization', winner: FLASHTEX },
       { label: 'Multiplayer', winner: ROBOT_JOUSTING },
@@ -53,6 +54,7 @@ const SECTIONS = [
   },
   {
     title: 'Sponsor Prizes',
+    twoCols: true,
     cards: [
       {
         label: 'SpaceXAI Prize',
@@ -117,6 +119,7 @@ const SECTIONS = [
   },
   {
     title: 'ACM Prizes',
+    twoCols: true,
     cards: [
       {
         label: 'Best Design',
@@ -165,7 +168,7 @@ function Winners() {
             <h3>{section.title}</h3>
             <span className="winners-rule" aria-hidden="true" />
           </div>
-          <div className="winners-grid">
+          <div className={`winners-grid${section.twoCols ? ' two-cols' : ''}`}>
             {section.cards.map((card) => (
               <WinnerCard key={card.label} label={card.label} winner={card.winner} />
             ))}
