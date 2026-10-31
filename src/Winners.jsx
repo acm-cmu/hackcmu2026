@@ -3,61 +3,43 @@ import './Winners.css'
 const TBD = '[to fill in]'
 const PLACES = ['1st', '2nd', '3rd']
 
-const TRACK_WINNERS = [
-  { name: 'Optimization', color: '#d9534f' },
-  { name: 'Multiplayer', color: '#4f9d6e' },
-  { name: 'Traveling', color: '#e8b93a' },
-  { name: 'Food', color: '#4f7fbf' },
+const placeCards = () => PLACES.map((label) => ({ label }))
+const winnerCard = (label = 'Winner') => [{ label }]
+
+const SECTIONS = [
+  { title: 'Grand Prize Winner', cards: winnerCard() },
+  { title: 'IFM Sponsor Track Winner', cards: winnerCard() },
+  { title: 'Optimization Track', cards: placeCards() },
+  { title: 'Multiplayer Track', cards: placeCards() },
+  { title: 'Traveling Track', cards: placeCards() },
+  { title: 'Food Track', cards: placeCards() },
+  { title: 'SpaceXAI Prize Winner', cards: winnerCard() },
+  { title: 'Sandia Prize Winner', cards: winnerCard() },
+  {
+    title: 'MLH Prizes',
+    cards: [
+      'Best Use of Gemini',
+      'Best Use of Eleven Labs',
+      'Best Use of Solana',
+      'Best Use of Vultr',
+      'Best Use of Auth0',
+      'Best Use of MongoDB',
+    ].map((label) => ({ label })),
+  },
+  { title: 'Best Design Winner', cards: winnerCard() },
+  { title: "People's Favorite", cards: winnerCard() },
 ]
 
-const SPECIAL_PRIZES = [
-  'Grand Prize',
-  'IFM Sponsor Track',
-  'SpaceXAI Prize',
-  'Sandia Prize',
-  'Best Design',
-  "People's Favorite",
-]
-
-const MLH_PRIZES = [
-  'Best Use of Gemini',
-  'Best Use of Eleven Labs',
-  'Best Use of Solana',
-  'Best Use of Vultr',
-  'Best Use of Auth0',
-  'Best Use of MongoDB',
-]
-
-function GroupHeading({ children }) {
-  return (
-    <div className="winners-group-heading">
-      <span className="winners-rule" aria-hidden="true" />
-      <h3>{children}</h3>
-      <span className="winners-rule" aria-hidden="true" />
-    </div>
-  )
-}
-
-function WinnerCard({ title, accent, children }) {
+function WinnerCard({ label }) {
   return (
     <div className="winner-card">
       <div className="winner-card-header">
         <span className="winner-card-rule" aria-hidden="true" />
-        <h4 style={accent ? { '--accent': accent } : undefined}>{title}</h4>
+        <h4>{label}</h4>
         <span className="winner-card-rule" aria-hidden="true" />
       </div>
-      <ol className="winner-list">{children}</ol>
+      <div className="winner-name">{TBD}</div>
     </div>
-  )
-}
-
-function WinnerRow({ label, name = TBD }) {
-  return (
-    <li className="winner-row">
-      <div className="winner-label">{label}</div>
-      <div className="winner-divider" aria-hidden="true" />
-      <div className="winner-name">{name}</div>
-    </li>
   )
 }
 
@@ -67,34 +49,20 @@ function Winners() {
       <h2 className="winners-title">Winners</h2>
       <p className="winners-subtitle">Congratulations to everyone who rode the Midnight Express!</p>
 
-      <GroupHeading>Track Winners</GroupHeading>
-      <div className="winners-grid">
-        {TRACK_WINNERS.map((track) => (
-          <WinnerCard key={track.name} title={track.name} accent={track.color}>
-            {PLACES.map((place) => (
-              <WinnerRow key={place} label={place} />
+      {SECTIONS.map((section) => (
+        <section className="winners-group" key={section.title}>
+          <div className="winners-group-heading">
+            <span className="winners-rule" aria-hidden="true" />
+            <h3>{section.title}</h3>
+            <span className="winners-rule" aria-hidden="true" />
+          </div>
+          <div className="winners-grid">
+            {section.cards.map((card) => (
+              <WinnerCard key={card.label} label={card.label} />
             ))}
-          </WinnerCard>
-        ))}
-      </div>
-
-      <GroupHeading>Special Prizes</GroupHeading>
-      <div className="winners-grid">
-        {SPECIAL_PRIZES.map((title) => (
-          <WinnerCard key={title} title={title}>
-            <WinnerRow label="Winner" />
-          </WinnerCard>
-        ))}
-      </div>
-
-      <GroupHeading>MLH Prizes</GroupHeading>
-      <div className="winners-grid">
-        {MLH_PRIZES.map((title) => (
-          <WinnerCard key={title} title={title}>
-            <WinnerRow label="Winner" />
-          </WinnerCard>
-        ))}
-      </div>
+          </div>
+        </section>
+      ))}
     </div>
   )
 }
