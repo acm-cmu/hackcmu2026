@@ -1,18 +1,44 @@
 import './Winners.css'
 
 const TBD = '[to fill in]'
-const PLACES = ['1st', '2nd', '3rd']
 
-const placeCards = () => PLACES.map((label) => ({ label }))
-const winnerCard = (label = 'Winner') => [{ label }]
+const firstPlace = (winner) => [{ label: '1st', winner }]
+const winnerCard = (winner) => [{ label: 'Winner', winner }]
+
+const ROBOT_JOUSTING = {
+  project: 'Robot Jousting',
+  team: 'Robot Jousting',
+  members: ['Chris Shi', 'Avnith Vijayram', 'Siddarth Radhakrishnan'],
+}
 
 const SECTIONS = [
-  { title: 'Grand Prize Winner', cards: winnerCard() },
+  { title: 'Grand Prize Winner', cards: winnerCard(ROBOT_JOUSTING) },
   { title: 'IFM Sponsor Track Winner', cards: winnerCard() },
-  { title: 'Optimization Track', cards: placeCards() },
-  { title: 'Multiplayer Track', cards: placeCards() },
-  { title: 'Traveling Track', cards: placeCards() },
-  { title: 'Food Track', cards: placeCards() },
+  {
+    title: 'Optimization Track',
+    cards: firstPlace({
+      project: 'Flashtex',
+      team: 'flashflood.vim',
+      members: ['Aarush Raheja', 'Kabir Goyal', 'Nat Karri', 'Taysen Tsao'],
+    }),
+  },
+  { title: 'Multiplayer Track', cards: firstPlace(ROBOT_JOUSTING) },
+  {
+    title: 'Traveling Track',
+    cards: firstPlace({
+      project: 'Trip Judge',
+      team: 'Companions from Central Plains',
+      members: ['Ryan He', 'Daniel Y Dong', 'Zhouxuan Yu'],
+    }),
+  },
+  {
+    title: 'Food Track',
+    cards: firstPlace({
+      project: 'Forkcast',
+      team: 'ROKA',
+      members: ['Shinyong Park', 'Chris Lee', 'Chris Lee', 'Beomjin Seo'],
+    }),
+  },
   { title: 'SpaceXAI Prize Winner', cards: winnerCard() },
   { title: 'Sandia Prize Winner', cards: winnerCard() },
   {
@@ -30,7 +56,7 @@ const SECTIONS = [
   { title: "People's Favorite", cards: winnerCard() },
 ]
 
-function WinnerCard({ label }) {
+function WinnerCard({ label, winner }) {
   return (
     <div className="winner-card">
       <div className="winner-card-header">
@@ -38,7 +64,15 @@ function WinnerCard({ label }) {
         <h4>{label}</h4>
         <span className="winner-card-rule" aria-hidden="true" />
       </div>
-      <div className="winner-name">{TBD}</div>
+      {winner ? (
+        <div className="winner-info">
+          <div className="winner-name">{winner.project}</div>
+          <div className="winner-team">{winner.team}</div>
+          <div className="winner-members">{winner.members.join(' · ')}</div>
+        </div>
+      ) : (
+        <div className="winner-name">{TBD}</div>
+      )}
     </div>
   )
 }
@@ -58,7 +92,7 @@ function Winners() {
           </div>
           <div className="winners-grid">
             {section.cards.map((card) => (
-              <WinnerCard key={card.label} label={card.label} />
+              <WinnerCard key={card.label} label={card.label} winner={card.winner} />
             ))}
           </div>
         </section>

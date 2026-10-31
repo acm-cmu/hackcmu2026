@@ -124,3 +124,22 @@
 }
 
 
+
+.winner-team {
+  font-family: var(--cinzel);
+  font-size: 9.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: var(--gold);
+}
+
+.winner-members {
+  margin-top: 4px;
+  padding-bottom: 6px;
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--charcoal);
+  opacity: 0.72;
+}
