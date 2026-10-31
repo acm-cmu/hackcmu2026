@@ -11,12 +11,12 @@ const TRACK_WINNERS = [
 ]
 
 const SPECIAL_PRIZES = [
-  { title: 'Grand Prize', color: '#dfa121' },
-  { title: 'IFM Sponsor Track', color: '#9268c9' },
-  { title: 'SpaceXAI Prize', color: '#dfa121' },
-  { title: 'Sandia Prize', color: '#dfa121' },
-  { title: 'Best Design', color: '#dfa121' },
-  { title: "People's Favorite", color: '#dfa121' },
+  'Grand Prize',
+  'IFM Sponsor Track',
+  'SpaceXAI Prize',
+  'Sandia Prize',
+  'Best Design',
+  "People's Favorite",
 ]
 
 const MLH_PRIZES = [
@@ -28,14 +28,36 @@ const MLH_PRIZES = [
   'Best Use of MongoDB',
 ]
 
-function Ticket({ label, color, children }) {
+function GroupHeading({ children }) {
   return (
-    <div className="winner-ticket" style={{ '--ticket-color': color }}>
-      <div className="winner-ticket-stub">
-        <span className="winner-ticket-label">{label}</span>
-      </div>
-      <div className="winner-ticket-body">{children}</div>
+    <div className="winners-group-heading">
+      <span className="winners-rule" aria-hidden="true" />
+      <h3>{children}</h3>
+      <span className="winners-rule" aria-hidden="true" />
     </div>
+  )
+}
+
+function WinnerCard({ title, accent, children }) {
+  return (
+    <div className="winner-card">
+      <div className="winner-card-header">
+        <span className="winner-card-rule" aria-hidden="true" />
+        <h4 style={accent ? { '--accent': accent } : undefined}>{title}</h4>
+        <span className="winner-card-rule" aria-hidden="true" />
+      </div>
+      <ol className="winner-list">{children}</ol>
+    </div>
+  )
+}
+
+function WinnerRow({ label, name = TBD }) {
+  return (
+    <li className="winner-row">
+      <div className="winner-label">{label}</div>
+      <div className="winner-divider" aria-hidden="true" />
+      <div className="winner-name">{name}</div>
+    </li>
   )
 }
 
@@ -45,37 +67,32 @@ function Winners() {
       <h2 className="winners-title">Winners</h2>
       <p className="winners-subtitle">Congratulations to everyone who rode the Midnight Express!</p>
 
-      <h3 className="winners-heading">Track Winners</h3>
+      <GroupHeading>Track Winners</GroupHeading>
       <div className="winners-grid">
         {TRACK_WINNERS.map((track) => (
-          <Ticket key={track.name} label={track.name} color={track.color}>
-            <ol className="winner-places">
-              {PLACES.map((place) => (
-                <li key={place}>
-                  <span className="winner-place">{place}</span>
-                  <span className="winner-name">{TBD}</span>
-                </li>
-              ))}
-            </ol>
-          </Ticket>
+          <WinnerCard key={track.name} title={track.name} accent={track.color}>
+            {PLACES.map((place) => (
+              <WinnerRow key={place} label={place} />
+            ))}
+          </WinnerCard>
         ))}
       </div>
 
-      <h3 className="winners-heading">Special Prizes</h3>
+      <GroupHeading>Special Prizes</GroupHeading>
       <div className="winners-grid">
-        {SPECIAL_PRIZES.map((prize) => (
-          <Ticket key={prize.title} label={prize.title} color={prize.color}>
-            <p className="winner-name solo">{TBD}</p>
-          </Ticket>
+        {SPECIAL_PRIZES.map((title) => (
+          <WinnerCard key={title} title={title}>
+            <WinnerRow label="Winner" />
+          </WinnerCard>
         ))}
       </div>
 
-      <h3 className="winners-heading">MLH Prizes</h3>
+      <GroupHeading>MLH Prizes</GroupHeading>
       <div className="winners-grid">
-        {MLH_PRIZES.map((prize) => (
-          <Ticket key={prize} label={prize} color="#4f7fbf">
-            <p className="winner-name solo">{TBD}</p>
-          </Ticket>
+        {MLH_PRIZES.map((title) => (
+          <WinnerCard key={title} title={title}>
+            <WinnerRow label="Winner" />
+          </WinnerCard>
         ))}
       </div>
     </div>
